@@ -11,8 +11,8 @@
             theme: {
                 extend: {
                     colors: {
-                        amber: { 500: '#d97706', 600: '#b45309' },
-                        paypal: { blue: '#0070ba', darkblue: '#003087' }
+                        amber: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
+                        slate: { 900: '#0f172a', 950: '#020617' }
                     }
                 }
             }
@@ -24,119 +24,121 @@
         html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-500/30 selection:text-amber-200">
+<body class="bg-slate-950 text-slate-200 font-sans antialiased selection:bg-amber-500/20 selection:text-amber-400">
 
-    <header class="border-b sticky top-0 z-50 backdrop-blur-md border-slate-800 bg-slate-950/80">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('store')">
-                <svg class="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <header class="border-b sticky top-0 z-50 backdrop-blur-lg border-slate-900 bg-slate-950/80">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3.5 cursor-pointer" onclick="navigateTo('store')">
+                <div class="p-2 bg-gradient-to-br from-amber-500/20 to-transparent border border-amber-500/30 rounded-xl shadow-inner">
+                    <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
                 <div>
-                    <h1 class="text-xl font-black tracking-wider uppercase text-white">Royal Corso</h1>
-                    <p class="text-[10px] tracking-widest text-slate-400 font-bold uppercase">NJ Purebred Registry Network</p>
+                    <h1 class="text-lg font-black tracking-widest uppercase text-white leading-none">Royal Corso</h1>
+                    <p class="text-[9px] tracking-widest text-slate-500 font-bold uppercase mt-1">NJ Purebred Registry Network</p>
                 </div>
             </div>
-            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl">
-                <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                USA Regional Desk Only
+            <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-slate-400 bg-slate-900 border border-slate-800/80 px-3.5 py-2 rounded-xl shadow-sm">
+                <span class="inline-block w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                Authorized US Regional Desk
             </div>
         </div>
     </header>
 
-    <div id="page-store" class="page-view space-y-12 py-8">
-        <section class="max-w-7xl mx-auto px-4 text-center space-y-4">
-            <span class="inline-flex items-center gap-1.5 text-amber-400 text-xs font-bold uppercase tracking-widest bg-amber-500/10 px-4 py-1.5 rounded-full border border-amber-500/20">
-                📍 Elite Guardian Kennel Base Location: New Jersey, USA
+    <div id="page-store" class="page-view space-y-12 py-12">
+        <section class="max-w-4xl mx-auto px-6 text-center space-y-5">
+            <span class="inline-flex items-center gap-2 text-amber-400 text-[10px] font-bold uppercase tracking-widest bg-amber-500/5 px-4 py-2 rounded-full border border-amber-500/10 shadow-sm">
+                📍 Primary Breeding Base: New Jersey, USA
             </span>
-            <h2 class="text-4xl sm:text-5xl font-black tracking-tight text-white uppercase">
+            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white uppercase font-serif">
                 Available Cane Corso Registries
             </h2>
-            <p class="text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                Explore our premium line-up. Puppies are priced at $500 and Elite Pre-Trained Adults are priced at $1000. Click on any dog's details button to review advanced certifications, bloodlines, and metrics.
+            <p class="text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed font-light">
+                Explore our elite-tier lineage. Standard puppies are set at $500; premium pre-trained guard assets are set at $1000. Review full blueprints below, and connect with us directly via Facebook to request live, high-resolution media dossiers.
             </p>
         </section>
 
-        <section class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-3">
-            <button onclick="setCategoryFilter('ALL')" id="cat-ALL" class="cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-amber-500 text-slate-950 shadow-lg">All Registries</button>
-            <button onclick="setCategoryFilter('Puppy')" id="cat-Puppy" class="cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-slate-900 border border-slate-800 text-slate-400">Standard Puppies ($500)</button>
-            <button onclick="setCategoryFilter('Pre-Trained Adult')" id="cat-Adult" class="cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-slate-900 border border-slate-800 text-slate-400">Pre-Trained Adults ($1000)</button>
+        <section class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-2.5">
+            <button onclick="setCategoryFilter('ALL')" id="cat-ALL" class="cat-toggle-btn px-6 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-amber-500 text-slate-950 shadow-md shadow-amber-500/5">All Tiers</button>
+            <button onclick="setCategoryFilter('Puppy')" id="cat-Puppy" class="cat-toggle-btn px-6 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-900/50 border border-slate-800/60 text-slate-400 hover:text-white hover:bg-slate-900">Standard Puppies ($500)</button>
+            <button onclick="setCategoryFilter('Pre-Trained Adult')" id="cat-Adult" class="cat-toggle-btn px-6 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-900/50 border border-slate-800/60 text-slate-400 hover:text-white hover:bg-slate-900">Pre-Trained Guardians ($1000)</button>
         </section>
 
-        <main class="max-w-7xl mx-auto px-4 pb-16">
+        <main class="max-w-7xl mx-auto px-6 pb-20">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="puppy-catalog-target">
                 </div>
         </main>
     </div>
 
 
-    <div id="page-checkout" class="page-view hidden space-y-10 py-10 bg-slate-900/40 min-h-screen border-t border-slate-950">
-        <section class="max-w-6xl mx-auto px-4">
-            <button onclick="navigateTo('store')" class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-all uppercase tracking-wider mb-6 bg-slate-900/80 border border-slate-800 px-4 py-2 rounded-xl">
-                ← Return to Registry Matrix
+    <div id="page-checkout" class="page-view hidden space-y-10 py-12 bg-slate-900/20 min-h-screen border-t border-slate-900">
+        <section class="max-w-6xl mx-auto px-6">
+            <button onclick="navigateTo('store')" class="inline-flex items-center gap-2 text-[10px] font-bold text-slate-400 hover:text-white transition-all uppercase tracking-widest mb-8 bg-slate-900 border border-slate-800/80 px-4 py-2.5 rounded-xl shadow-sm">
+                ← Return to Registry Catalog
             </button>
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
                 <div class="lg:col-span-7 space-y-6">
-                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-4 shadow-xl">
-                        <div class="border-b border-slate-800 pb-3 flex justify-between items-center">
+                    <div class="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl space-y-5 shadow-xl backdrop-blur-md">
+                        <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
                             <div>
-                                <h3 class="text-lg font-black uppercase text-white tracking-wider">1. Logistics Setup Verification</h3>
-                                <p class="text-xs text-slate-400">Specify handling deployment targets to compute real-time custom processing fees.</p>
+                                <h3 class="text-sm font-bold uppercase text-white tracking-wider">1. Logistics Setup Verification</h3>
+                                <p class="text-[11px] text-slate-400 mt-0.5 font-light">Specify handling deployment targets to compute processing fees.</p>
                             </div>
-                            <span class="text-day font-extrabold text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/20 font-black px-2.5 py-1 rounded-md uppercase tracking-wider">Step 1 of 2</span>
+                            <span class="text-[9px] bg-amber-500/10 text-amber-400 border border-amber-500/20 font-bold px-2.5 py-1 rounded-md uppercase tracking-widest">Step 1 of 2</span>
                         </div>
 
                         <form id="shipping-address-form" class="space-y-4 text-xs" oninput="calculateOrderTotals()">
                             <div class="space-y-1.5">
-                                <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider block">Full Legal Recipient Name</label>
-                                <input type="text" id="cust-name" required placeholder="John Doe" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500 transition-all placeholder:text-slate-700">
+                                <label class="text-[10px] font-bold uppercase text-slate-400 tracking-widest block">Full Legal Recipient Name</label>
+                                <input type="text" id="cust-name" required placeholder="John Doe" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500/50 transition-all placeholder:text-slate-700">
                             </div>
 
                             <div class="space-y-1.5">
-                                <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider block">Street Delivery Address Line</label>
-                                <input type="text" id="cust-address" required placeholder="123 Jersey Ave" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500 transition-all placeholder:text-slate-700">
+                                <label class="text-[10px] font-bold uppercase text-slate-400 tracking-widest block">Street Delivery Address Line</label>
+                                <input type="text" id="cust-address" required placeholder="123 Jersey Ave" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500/50 transition-all placeholder:text-slate-700">
                             </div>
 
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                                 <div class="space-y-1.5">
-                                    <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider block">City</label>
-                                    <input type="text" id="cust-city" required placeholder="Newark" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500 transition-all placeholder:text-slate-700">
+                                    <label class="text-[10px] font-bold uppercase text-slate-400 tracking-widest block">City</label>
+                                    <input type="text" id="cust-city" required placeholder="Newark" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500/50 transition-all placeholder:text-slate-700">
                                 </div>
                                 <div class="space-y-1.5">
-                                    <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider block">State (USA Only)</label>
-                                    <input type="text" id="cust-state" required placeholder="NJ" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500 transition-all placeholder:text-slate-700">
+                                    <label class="text-[10px] font-bold uppercase text-slate-400 tracking-widest block">State (USA Only)</label>
+                                    <input type="text" id="cust-state" required placeholder="NJ" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500/50 transition-all placeholder:text-slate-700">
                                 </div>
                                 <div class="space-y-1.5">
-                                    <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider block">Zip Code</label>
-                                    <input type="text" id="cust-zip" required placeholder="07101" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500 transition-all placeholder:text-slate-700">
+                                    <label class="text-[10px] font-bold uppercase text-slate-400 tracking-widest block">Zip Code</label>
+                                    <input type="text" id="cust-zip" required placeholder="07101" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500/50 transition-all placeholder:text-slate-700">
                                 </div>
                             </div>
 
-                            <div class="pt-4 border-t border-slate-800/60 space-y-2">
-                                <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider block mb-1">Fulfillment Delivery Protocols</label>
+                            <div class="pt-5 border-t border-slate-800/60 space-y-2.5">
+                                <label class="text-[10px] font-bold uppercase text-slate-400 tracking-widest block mb-1">Fulfillment Delivery Protocol</label>
                                 
-                                <label class="block relative p-4 rounded-xl border bg-slate-950 border-slate-800 cursor-pointer hover:border-slate-700 transition-all select-none">
+                                <label class="block relative p-4 rounded-xl border bg-slate-950/40 border-slate-800 cursor-pointer hover:border-slate-700/60 transition-all select-none">
                                     <div class="flex items-start gap-3">
                                         <input type="radio" name="fulfillment_mode" id="mode-pickup" value="PICKUP" checked class="mt-1 accent-amber-500 scale-110">
                                         <div>
                                             <div class="flex items-center gap-2">
-                                                <span class="text-xs font-black text-white uppercase tracking-wide">Direct Local Kennel Pickup</span>
-                                                <span class="text-[9px] font-extrabold bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded text-emerald-400">FREE</span>
+                                                <span class="text-xs font-bold text-white uppercase tracking-wide">Direct Local Kennel Pickup</span>
+                                                <span class="text-[8px] font-black bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded text-emerald-400 uppercase tracking-wider">Complementary</span>
                                             </div>
-                                            <p class="text-[11px] text-slate-400 mt-0.5 leading-relaxed">Arrange a secure in-person handoff sequence directly at our primary facility coordinates out of **New Jersey** by scheduling an appointment slot.</p>
+                                            <p class="text-[11px] text-slate-400 mt-1 leading-relaxed font-light">Arrange an in-person handover directly at our primary facility coordinates in New Jersey by post-purchase scheduling.</p>
                                         </div>
                                     </div>
                                 </label>
 
-                                <label class="block relative p-4 rounded-xl border bg-slate-950 border-slate-800 cursor-pointer hover:border-slate-700 transition-all select-none">
+                                <label class="block relative p-4 rounded-xl border bg-slate-950/40 border-slate-800 cursor-pointer hover:border-slate-700/60 transition-all select-none">
                                     <div class="flex items-start gap-3">
                                         <input type="radio" name="fulfillment_mode" id="mode-transport" value="TRANSPORT" class="mt-1 accent-amber-500 scale-110">
                                         <div>
                                             <div class="flex items-center gap-2">
-                                                <span class="text-xs font-black text-white uppercase tracking-wide">Climate-Controlled K9 Ground Transport</span>
-                                                <span class="text-[9px] font-extrabold bg-amber-500/10 border border-amber-500/20 px-1.5 py-0.5 rounded text-amber-400 font-mono">+$25.00 FLAT FEE</span>
+                                                <span class="text-xs font-bold text-white uppercase tracking-wide">Climate-Controlled K9 Ground Transport</span>
+                                                <span class="text-[8px] font-black bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded text-amber-400 tracking-wider">+$25.00 FLAT RATE</span>
                                             </div>
-                                            <p class="text-[11px] text-slate-400 mt-0.5 leading-relaxed">We will safely route and deliver your selected animal directly to your validated USA location box utilizing specialized cross-country safe transit vehicles.</p>
+                                            <p class="text-[11px] text-slate-400 mt-1 leading-relaxed font-light">Animals are securely routed via specialized climate-regulated safe transit K9 vehicles directly to your validated USA location box.</p>
                                         </div>
                                     </div>
                                 </label>
@@ -144,62 +146,62 @@
                         </form>
                     </div>
 
-                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-6 shadow-xl">
-                        <div class="border-b border-slate-800 pb-3">
-                            <h3 class="text-lg font-black uppercase text-white tracking-wider">2. Verified PayPal Checkout Guide</h3>
-                            <p class="text-xs text-slate-400">Follow these strict sequential procedures to process your purchase order validation.</p>
+                    <div class="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl space-y-5 shadow-xl backdrop-blur-md">
+                        <div class="border-b border-slate-800 pb-4">
+                            <h3 class="text-sm font-bold uppercase text-white tracking-wider">2. Verified PayPal Checkout Escrow Guide</h3>
+                            <p class="text-xs text-slate-400 font-light mt-0.5">Follow these chronological phases to securely clear your registry acquisition.</p>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                            <div class="p-4 bg-slate-950 border border-slate-800/80 rounded-2xl space-y-1">
-                                <div class="flex items-center justify-between text-amber-500 font-mono font-black mb-1">
+                            <div class="p-4 bg-slate-950/50 border border-slate-800/60 rounded-xl space-y-1">
+                                <div class="flex items-center justify-between text-amber-500 font-mono font-bold text-[10px] tracking-wider mb-1">
                                     <span>PHASE 01</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                                 </div>
-                                <h4 class="font-bold text-white uppercase text-[11px]">Initialize Portal Path</h4>
-                                <p class="text-[11px] text-slate-400 leading-relaxed">Click the blue checkout trigger. Our layout calculates the total and routes you directly into the live PayPal payment gateway link.</p>
+                                <h4 class="font-bold text-white uppercase text-[10px] tracking-wide">Initialize Gateway</h4>
+                                <p class="text-[11px] text-slate-400 leading-relaxed font-light">Trigger the calculated payment link below to pass the custom-calculated line parameters securely into the commercial PayPal interface.</p>
                             </div>
 
-                            <div class="p-4 bg-slate-950 border border-slate-800/80 rounded-2xl space-y-1">
-                                <div class="flex items-center justify-between text-amber-500 font-mono font-black mb-1">
+                            <div class="p-4 bg-slate-950/50 border border-slate-800/60 rounded-xl space-y-1">
+                                <div class="flex items-center justify-between text-amber-500 font-mono font-bold text-[10px] tracking-wider mb-1">
                                     <span>PHASE 02</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                                 </div>
-                                <h4 class="font-bold text-white uppercase text-[11px]">Authenticate & Sync Address</h4>
-                                <p class="text-[11px] text-slate-400 leading-relaxed">Sign in or check out as a guest. Make sure the shipping destination parameters inside PayPal match your form address here for buyer protection clearance.</p>
+                                <h4 class="font-bold text-white uppercase text-[10px] tracking-wide">Synchronize Details</h4>
+                                <p class="text-[11px] text-slate-400 leading-relaxed font-light">Ensure your internal PayPal shipping profile selection precisely matches the logistical form layout details input on this system page.</p>
                             </div>
 
-                            <div class="p-4 bg-slate-950 border border-slate-800/80 rounded-2xl space-y-1">
-                                <div class="flex items-center justify-between text-amber-500 font-mono font-black mb-1">
+                            <div class="p-4 bg-slate-950/50 border border-slate-800/60 rounded-xl space-y-1">
+                                <div class="flex items-center justify-between text-amber-500 font-mono font-bold text-[10px] tracking-wider mb-1">
                                     <span>PHASE 03</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 012 2H5a2 2 0 01-2-2V9zM3 9h18"/></svg>
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 012 2H5a2 2 0 01-2-2V9zM3 9h18"/></svg>
                                 </div>
-                                <h4 class="font-bold text-white uppercase text-[11px]">Authorize Transaction</h4>
-                                <p class="text-[11px] text-slate-400 leading-relaxed">Verify the exact calculated line amount matches, capture your final invoice screen proof state, and execute authorization.</p>
+                                <h4 class="font-bold text-white uppercase text-[10px] tracking-wide">Authorize Deposit</h4>
+                                <p class="text-[11px] text-slate-400 leading-relaxed font-light">Authorize the settlement invoice. Capture a high-contrast digital screenshot of the receipt screen showing transaction parameters.</p>
                             </div>
 
-                            <div class="p-4 bg-slate-950 border border-slate-800/80 rounded-2xl space-y-1">
-                                <div class="flex items-center justify-between text-amber-500 font-mono font-black mb-1">
+                            <div class="p-4 bg-slate-950/50 border border-slate-800/60 rounded-xl space-y-1">
+                                <div class="flex items-center justify-between text-amber-500 font-mono font-bold text-[10px] tracking-wider mb-1">
                                     <span>PHASE 04</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
                                 </div>
-                                <h4 class="font-bold text-white uppercase text-[11px]">Forward Receipt Confirmation</h4>
-                                <p class="text-[11px] text-slate-400 leading-relaxed">Bring the transaction metadata confirmation slip straight to our Facebook support chat line to coordinate final transit pickup timings.</p>
+                                <h4 class="font-bold text-white uppercase text-[10px] tracking-wide">Forward Metadata</h4>
+                                <p class="text-[11px] text-slate-400 leading-relaxed font-light">Relay the invoice slip straight into our official Facebook chat network to lock in transit assignments and dispatch priority schedules.</p>
                             </div>
                         </div>
 
-                        <div class="bg-blue-950/40 border border-blue-900/50 rounded-2xl p-4 flex gap-3 items-start text-xs text-blue-300">
-                            <span class="text-base">🛡️</span>
-                            <p class="leading-relaxed">
-                                <strong class="text-white uppercase font-black text-[10px] tracking-wider block mb-0.5">Secure Escrow Processing Policy</strong>
-                                We exclusively route transactions utilizing official PayPal parameters. This protocol guarantees mutual safety assurances across large-breed purebred registries.
+                        <div class="bg-slate-950 border border-slate-800/60 rounded-xl p-4 flex gap-3 items-start text-xs text-slate-400">
+                            <span class="text-amber-500 text-sm">🛡️</span>
+                            <p class="leading-relaxed font-light">
+                                <strong class="text-white uppercase font-bold text-[10px] tracking-wider block mb-0.5">Escrow Buyer Protection Standard</strong>
+                                We handle processing purely via verified commercial payment parameters. This strict operational sequence guarantees security protocols across large-breed asset handovers.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-5 sticky top-24 space-y-4">
-                    <div id="checkout-receipt-card" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-4">
+                <div class="lg:col-span-5 sticky top-24">
+                    <div id="checkout-receipt-card" class="bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 shadow-xl backdrop-blur-md space-y-4">
                         </div>
                 </div>
 
@@ -207,78 +209,76 @@
         </section>
     </div>
 
-    <div id="details-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 max-w-2xl w-full rounded-3xl overflow-hidden shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
-            <div class="p-6 border-b border-slate-800 bg-slate-950/40 flex justify-between items-start">
+    <div id="details-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 max-w-xl w-full rounded-2xl overflow-hidden shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
+            <div class="p-6 border-b border-slate-800/60 bg-slate-950/30 flex justify-between items-start">
                 <div>
-                    <span id="modal-dog-badge" class="text-[9px] font-black tracking-widest bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-full uppercase">PUPPY</span>
-                    <h3 id="modal-dog-name" class="text-2xl font-black text-white uppercase tracking-wide mt-1">Dog Name</h3>
-                    <p id="modal-dog-coat" class="text-xs text-amber-400 italic">Coat Pattern Specs</p>
+                    <span id="modal-dog-badge" class="text-[8px] font-black tracking-widest bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded uppercase font-sans">PUPPY SELECTION</span>
+                    <h3 id="modal-dog-name" class="text-xl font-extrabold text-white uppercase tracking-wide mt-1.5 font-serif">Dog Name</h3>
+                    <p id="modal-dog-coat" class="text-xs text-amber-400/90 italic font-light">Coat Pattern Specs</p>
                 </div>
                 <button onclick="closeDetailsModal()" class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white p-2 rounded-xl transition-all">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>
 
-            <div class="p-6 space-y-6 max-h-[70vh] overflow-y-auto no-scrollbar text-xs">
-                <div class="grid grid-cols-3 gap-3 text-center">
-                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800/60">
-                        <span class="text-slate-500 text-[9px] uppercase tracking-wider block mb-0.5">Developmental Age</span>
-                        <strong id="modal-dog-age" class="text-white text-sm font-mono">8 Weeks</strong>
+            <div class="p-6 space-y-5 max-h-[65vh] overflow-y-auto no-scrollbar text-xs">
+                <div class="grid grid-cols-3 gap-2.5 text-center">
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/50">
+                        <span class="text-slate-500 text-[8px] font-bold uppercase tracking-widest block mb-1">Age Index</span>
+                        <strong id="modal-dog-age" class="text-white text-xs font-mono font-bold">8 Weeks</strong>
                     </div>
-                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800/60">
-                        <span class="text-slate-500 text-[9px] uppercase tracking-wider block mb-0.5">Current Weight</span>
-                        <strong id="modal-dog-weight" class="text-white text-sm font-mono">15 lbs</strong>
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/50">
+                        <span class="text-slate-500 text-[8px] font-bold uppercase tracking-widest block mb-1">Mass Index</span>
+                        <strong id="modal-dog-weight" class="text-white text-xs font-mono font-bold">15 lbs</strong>
                     </div>
-                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800/60">
-                        <span class="text-slate-500 text-[9px] uppercase tracking-wider block mb-0.5">Base Registry Fee</span>
-                        <strong id="modal-dog-price" class="text-amber-500 text-sm font-mono">$500 USD</strong>
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/50">
+                        <span class="text-slate-500 text-[8px] font-bold uppercase tracking-widest block mb-1">Registry Capital</span>
+                        <strong id="modal-dog-price" class="text-amber-500 text-xs font-mono font-bold">$500</strong>
                     </div>
                 </div>
 
-                <div class="space-y-4">
+                <div class="space-y-4 text-slate-300">
                     <div class="space-y-1">
-                        <h4 class="text-white font-black uppercase tracking-wider text-[11px] flex items-center gap-1.5">📝 Comprehensive Overview Profile</h4>
-                        <p id="modal-dog-desc" class="text-slate-400 leading-relaxed text-xs">Detailed summary text goes here layout profile.</p>
+                        <h4 class="text-white font-bold uppercase tracking-wider text-[10px] flex items-center gap-1.5">📋 Lineage Profile & Analysis</h4>
+                        <p id="modal-dog-desc" class="text-slate-400 leading-relaxed font-light">Detailed summary text goes here profile.</p>
                     </div>
 
-                    <hr class="border-slate-800/60">
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="space-y-2 bg-slate-950/40 border border-slate-800 p-4 rounded-2xl">
-                            <h5 class="text-amber-500 font-bold uppercase tracking-wider text-[10px]">🧠 Behavioral & Drive Diagnostics</h5>
-                            <ul class="space-y-1.5 text-slate-300 font-medium">
-                                <li class="flex justify-between"><span>Environmental Stability:</span> <strong class="text-white font-mono">Excellent (High)</strong></li>
-                                <li class="flex justify-between"><span>Social Companion Drive:</span> <strong class="text-white font-mono">Balanced / Attentive</strong></li>
-                                <li class="flex justify-between"><span>Family Guard Compatibility:</span> <strong class="text-white font-mono">100% Certified Safe</strong></li>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+                        <div class="space-y-2 bg-slate-950/30 border border-slate-800/60 p-3.5 rounded-xl">
+                            <h5 class="text-amber-500 font-bold uppercase tracking-widest text-[9px]">🧠 Temperament Evaluation</h5>
+                            <ul class="space-y-1.5 text-slate-400 text-[11px]">
+                                <li class="flex justify-between border-b border-slate-900/60 pb-1"><span>Env. Stability:</span> <strong class="text-white font-mono font-medium">High / Certified</strong></li>
+                                <li class="flex justify-between border-b border-slate-900/60 pb-1"><span>Social Drive:</span> <strong class="text-white font-mono font-medium">Attentive / Stable</strong></li>
+                                <li class="flex justify-between"><span>Family Safe:</span> <strong class="text-white font-mono font-medium">100% Monitored</strong></li>
                             </ul>
                         </div>
 
-                        <div class="space-y-2 bg-slate-950/40 border border-slate-800 p-4 rounded-2xl">
-                            <h5 class="text-amber-500 font-bold uppercase tracking-wider text-[10px]">🛡️ Training Status Breakdown</h5>
-                            <ul class="space-y-1.5 text-slate-300 font-medium">
-                                <li class="flex justify-between"><span>Leash Compliance Matrix:</span> <strong id="modal-dog-leash" class="text-white font-mono">Intro Stage</strong></li>
-                                <li class="flex justify-between"><span>House Breaking Protocol:</span> <strong id="modal-dog-house" class="text-white font-mono">In Progress</strong></li>
-                                <li class="flex justify-between"><span>Threat Alert Level:</span> <strong id="modal-dog-threat" class="text-white font-mono">Passive Guard</strong></li>
+                        <div class="space-y-2 bg-slate-950/30 border border-slate-800/60 p-3.5 rounded-xl">
+                            <h5 class="text-amber-500 font-bold uppercase tracking-widest text-[9px]">🛡️ Tactical Readiness Status</h5>
+                            <ul class="space-y-1.5 text-slate-400 text-[11px]">
+                                <li class="flex justify-between border-b border-slate-900/60 pb-1"><span>Leash Compliance:</span> <strong id="modal-dog-leash" class="text-white font-mono font-medium">Intro Stage</strong></li>
+                                <li class="flex justify-between border-b border-slate-900/60 pb-1"><span>House Integration:</span> <strong id="modal-dog-house" class="text-white font-mono font-medium">In Progress</strong></li>
+                                <li class="flex justify-between"><span>Alert Instinct:</span> <strong id="modal-dog-threat" class="text-white font-mono font-medium">Passive Guard</strong></li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="bg-slate-950/80 border border-slate-800 p-4 rounded-2xl space-y-2">
-                        <h5 class="text-emerald-400 font-bold uppercase tracking-wider text-[10px] flex items-center gap-1">🩺 Medical Clearance & Health Dossier</h5>
-                        <p class="text-slate-400 leading-relaxed text-[11px]">
-                            Comes fully accompanied by official purebred registration papers registry slips, multi-point standard veterinary health certification reports, and up-to-date age-appropriate vaccination records. De-worming regimes completed at week intervals. Parents screen-cleared for optimal structural skeletal joint and hip alignments.
+                    <div class="bg-slate-950/40 border border-slate-800 p-4 rounded-xl space-y-1.5">
+                        <h5 class="text-emerald-400 font-bold uppercase tracking-widest text-[9px] flex items-center gap-1">🩺 Certified Veterinary Clearance</h5>
+                        <p class="text-slate-400 leading-relaxed font-light text-[11px]">
+                            Accompanied fully by certified purebred registration tracking files, complete veterinary clearance diagnostics, and age-calibrated immunization logs. Hip, bone density, and structural skeletal joint geometries screen-vetted for optimal performance lines.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="p-4 border-t border-slate-800 bg-slate-950/60 flex gap-3">
-                <button id="modal-buy-btn" class="flex-1 bg-amber-500 text-slate-950 font-black py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-lg hover:bg-amber-600 transition-all">
-                    Initiate Purchase Route
+            <div class="p-4 border-t border-slate-800 bg-slate-950/40 flex gap-2.5">
+                <button id="modal-buy-btn" class="flex-1 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition-all shadow-md">
+                    Proceed to Verification Gateway
                 </button>
-                <button onclick="closeDetailsModal()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-5 rounded-xl text-xs uppercase tracking-wider transition-all border border-slate-700">
-                    Dismiss
+                <button onclick="closeDetailsModal()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium px-5 rounded-xl text-xs uppercase tracking-wider transition-all border border-slate-700">
+                    Close
                 </button>
             </div>
         </div>
@@ -331,13 +331,13 @@
             activeCategoryFilter = category;
             
             document.querySelectorAll('.cat-toggle-btn').forEach(btn => {
-                btn.className = "cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-slate-900 border border-slate-800 text-slate-400";
+                btn.className = "cat-toggle-btn px-6 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-900/50 border border-slate-800/60 text-slate-400 hover:text-white hover:bg-slate-900";
             });
             
             const mapping = { 'ALL': 'cat-ALL', 'Puppy': 'cat-Puppy', 'Pre-Trained Adult': 'cat-Adult' };
             const activeBtn = document.getElementById(mapping[category]);
             if (activeBtn) {
-                activeBtn.className = "cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-amber-500 text-slate-950 shadow-lg";
+                activeBtn.className = "cat-toggle-btn px-6 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-amber-500 text-slate-950 shadow-md shadow-amber-500/5";
             }
             
             renderStoreFrontGrid();
@@ -353,39 +353,41 @@
 
             filteredList.forEach(dog => {
                 container.innerHTML += `
-                    <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-slate-700 transition-all flex flex-col justify-between group shadow-xl">
-                        <div class="relative aspect-square bg-slate-950 flex flex-col items-center justify-center p-6 text-center border-b border-slate-800/60">
-                            <svg class="w-10 h-10 text-slate-700 mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 00-1.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 017.5 0z"/></svg>
-                            <span class="text-[11px] font-black uppercase tracking-wider text-amber-500 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20 mb-1">Image Not Available</span>
-                            <p class="text-[10px] font-bold text-slate-400 max-w-[180px] leading-normal">Ask for current layout photos on Facebook Chat</p>
+                    <div class="bg-slate-900/30 border border-slate-900 rounded-2xl overflow-hidden hover:border-slate-800/80 hover:bg-slate-900/50 transition-all duration-300 flex flex-col justify-between group shadow-xl">
+                        <div class="relative aspect-square bg-slate-950 flex flex-col items-center justify-center p-6 text-center border-b border-slate-900">
+                            <div class="p-3 bg-slate-900 rounded-2xl border border-slate-800/50 text-slate-700 mb-3 group-hover:scale-105 transition-all duration-300 shadow-inner">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 017.5 0z"/></svg>
+                            </div>
+                            <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 bg-slate-900 px-3 py-1 rounded border border-slate-800/80 mb-1.5">Portfolio Unreleased</span>
+                            <p class="text-[10px] text-slate-500 max-w-[180px] leading-normal font-light">Request high-res profile media on Facebook Chat</p>
                             
-                            <span class="absolute top-3 right-3 bg-slate-900/90 backdrop-blur-md text-amber-500 text-xs font-black font-mono px-3 py-1.5 rounded-xl border border-slate-800 shadow-xl">$${dog.price} USD</span>
+                            <span class="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md text-amber-500 text-[11px] font-bold font-mono px-3 py-1 rounded-lg border border-slate-800/80 shadow-md">$${dog.price}</span>
                             
-                            <div class="absolute bottom-3 left-3 right-3 text-left">
-                                <h3 class="text-lg font-black text-white uppercase tracking-wide flex items-center gap-2">
+                            <div class="absolute bottom-4 left-4 right-4 text-left">
+                                <h3 class="text-base font-bold text-white uppercase tracking-wide flex items-center gap-2 font-serif">
                                     ${dog.name}
-                                    <span class="text-[9px] font-extrabold bg-amber-500 text-slate-950 px-1.5 py-0.5 rounded-full uppercase tracking-widest font-sans">${dog.type === 'Puppy' ? 'PUP' : 'ADULT'}</span>
+                                    <span class="text-[8px] font-black tracking-widest bg-amber-500/10 border border-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded uppercase font-sans">${dog.type === 'Puppy' ? 'PUP' : 'GUARD'}</span>
                                 </h3>
-                                <p class="text-[11px] font-bold text-amber-400 italic mt-0.5">${dog.coat}</p>
+                                <p class="text-[10px] font-medium text-amber-400/80 italic mt-0.5">${dog.coat}</p>
                             </div>
                         </div>
 
-                        <div class="p-4 space-y-3 flex-grow flex flex-col justify-between">
-                            <div class="space-y-1.5 text-xs">
-                                <div class="bg-slate-950/50 border border-slate-800 px-3 py-2 rounded-xl text-slate-400 font-mono flex justify-between text-[10px]">
-                                    <span>Age: <strong>${dog.age}</strong></span>
-                                    <span>Weight: <strong>${dog.weight}</strong></span>
+                        <div class="p-4 space-y-4 flex-grow flex flex-col justify-between">
+                            <div class="space-y-2 text-xs">
+                                <div class="bg-slate-950/40 border border-slate-900 px-3 py-2 rounded-xl text-slate-400 font-mono flex justify-between text-[10px] shadow-inner">
+                                    <span>Age: <strong class="text-slate-300 font-sans font-medium">${dog.age}</strong></span>
+                                    <span>Weight: <strong class="text-slate-300 font-sans font-medium">${dog.weight}</strong></span>
                                 </div>
-                                <p class="text-slate-400 leading-relaxed text-[11px] line-clamp-2">${dog.description}</p>
+                                <p class="text-slate-400 leading-relaxed text-[11px] line-clamp-2 font-light">${dog.description}</p>
                             </div>
 
-                            <div class="space-y-2 pt-1">
-                                <button onclick="openDetailsModal(${dog.id})" class="w-full bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white font-bold py-2 rounded-xl transition-all uppercase tracking-wider text-[10px] flex items-center justify-center gap-1">
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                                    View Blueprint & Details
+                            <div class="space-y-1.5 pt-1">
+                                <button onclick="openDetailsModal(${dog.id})" class="w-full bg-slate-950 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white font-medium py-2 rounded-xl transition-all uppercase tracking-wider text-[10px] flex items-center justify-center gap-1 shadow-sm">
+                                    <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                    View Blueprint Details
                                 </button>
-                                <button onclick="triggerCheckoutFlow(${dog.id})" class="w-full bg-slate-800 hover:bg-amber-500 text-white hover:text-slate-950 font-black py-2.5 rounded-xl transition-all uppercase tracking-wider text-[10px]">
-                                    Buy Now (PayPal Only)
+                                <button onclick="triggerCheckoutFlow(${dog.id})" class="w-full bg-slate-800 hover:bg-amber-500 text-slate-200 hover:text-slate-950 font-bold py-2 rounded-xl transition-all uppercase tracking-wider text-[10px] duration-300">
+                                    Initiate Registry Request
                                 </button>
                             </div>
                         </div>
@@ -399,12 +401,12 @@
             const dog = puppyInventory.find(item => item.id === dogId);
             if (!dog) return;
 
-            document.getElementById('modal-dog-badge').innerText = dog.type === 'Puppy' ? 'PUPPY SELECTION' : 'ELITE PRE-TRAINED ADULT';
+            document.getElementById('modal-dog-badge').innerText = dog.type === 'Puppy' ? 'STANDARD REGISTRY PUPPY' : 'ELITE PRE-TRAINED GUARDIAN ASSET';
             document.getElementById('modal-dog-name').innerText = dog.name;
             document.getElementById('modal-dog-coat').innerText = `${dog.coat} Purebred Configuration`;
             document.getElementById('modal-dog-age').innerText = dog.age;
             document.getElementById('modal-dog-weight').innerText = dog.weight;
-            document.getElementById('modal-dog-price').innerText = `$${dog.price} USD`;
+            document.getElementById('modal-dog-price').innerText = `$${dog.price}.00`;
             document.getElementById('modal-dog-desc').innerText = dog.description;
 
             // Set dynamic training metric content depending on class rules
@@ -413,9 +415,9 @@
                 document.getElementById('modal-dog-house').innerText = "Crate Conditioning";
                 document.getElementById('modal-dog-threat').innerText = "Passive Companion";
             } else {
-                document.getElementById('modal-dog-leash').innerText = "100% Certified Off-Leash";
+                document.getElementById('modal-dog-leash').innerText = "100% Off-Leash Certified";
                 document.getElementById('modal-dog-house').innerText = "Fully House Integrated";
-                document.getElementById('modal-dog-threat').innerText = "Active Command Guard";
+                document.getElementById('modal-dog-threat').innerText = "Active Command Alert";
             }
 
             // Assign immediate checkout routing to the inner button
@@ -460,54 +462,54 @@
 
             if (isFormComplete) {
                 interactiveActionBlock = `
-                    <div class="space-y-3 pt-2">
-                        <a href="${PAYPAL_ENDPOINT_BASE}/${fullTotalSum}" target="_blank" rel="noopener noreferrer" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-3 px-4 rounded-xl transition-all text-center block text-xs uppercase tracking-widest shadow-xl shadow-blue-600/10">
-                            Execute Secure PayPal Payment ($${fullTotalSum}) ↗
+                    <div class="space-y-2.5 pt-3 border-t border-slate-800">
+                        <a href="${PAYPAL_ENDPOINT_BASE}/${fullTotalSum}" target="_blank" rel="noopener noreferrer" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl transition-all text-center block text-xs uppercase tracking-widest shadow-lg shadow-blue-600/10">
+                            Launch PayPal Gateway ($${fullTotalSum}.00) ↗
                         </a>
-                        <a href="${FACEBOOK_LINK_ENDPOINT}" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold py-2.5 px-4 rounded-xl transition-all text-center block text-[10px] uppercase tracking-wider border border-slate-700">
-                            Forward Screenshot to Facebook Chat ↗
+                        <a href="${FACEBOOK_LINK_ENDPOINT}" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium py-2.5 px-4 rounded-xl transition-all text-center block text-[10px] uppercase tracking-wider border border-slate-700/60">
+                            Forward Receipt to Facebook Support ↗
                         </a>
-                        <p class="text-[10px] text-slate-500 text-center leading-normal">Clicking payment locks your destination parameters setup to exactly $${fullTotalSum} USD via secure business links.</p>
+                        <p class="text-[10px] text-slate-500 text-center leading-normal font-light">Secure redirect anchors process your settlement statement inside secure merchant layers.</p>
                     </div>
                 `;
             } else {
                 interactiveActionBlock = `
-                    <div class="bg-slate-950/60 border border-dashed border-slate-800 p-4 rounded-2xl text-center text-[11px] text-slate-500 font-medium leading-relaxed">
-                        ⚠️ <span class="text-amber-500 font-bold uppercase tracking-wide text-[10px] block mt-0.5">Address Required</span>
-                        Please populate your complete USA address coordinates inside the logistics form grid on the left to activate your authenticated PayPal processing buttons.
+                    <div class="bg-slate-950/40 border border-dashed border-slate-800 p-5 rounded-xl text-center text-[11px] text-slate-500 font-medium leading-relaxed shadow-inner">
+                        ⚠️ <span class="text-amber-500 font-bold uppercase tracking-wider text-[10px] block mt-0.5">Awaiting Logistics Data</span>
+                        Populate your structural USA shipping parameters inside the form grid to activate secure payment links.
                     </div>
                 `;
             }
 
             receiptTarget.innerHTML = `
                 <div class="border-b border-slate-800 pb-3">
-                    <h4 class="text-xs font-black uppercase text-slate-400 tracking-wider">Review Purchase Dossier</h4>
+                    <h4 class="text-xs font-bold uppercase text-slate-400 tracking-wider">Review Purchase Ledger</h4>
                 </div>
 
-                <div class="flex gap-3 items-center bg-slate-950/60 p-3 rounded-2xl border border-slate-800/60">
-                    <div class="w-12 h-12 bg-slate-950 border border-slate-800 rounded-xl flex items-center justify-center text-slate-500 font-bold text-[9px] text-center p-1 leading-none uppercase">Media On FB</div>
+                <div class="flex gap-3 items-center bg-slate-950/40 p-3 rounded-xl border border-slate-900">
+                    <div class="w-12 h-12 bg-slate-950 border border-slate-800 rounded-lg flex items-center justify-center text-slate-600 font-bold text-[8px] text-center p-1 leading-tight uppercase font-sans tracking-tight">Media Vetted</div>
                     <div class="text-xs">
-                        <p class="font-black text-white uppercase">${dog.name} — ${dog.type}</p>
-                        <p class="text-[10px] text-slate-500 font-mono mt-0.5">${dog.coat} • ${dog.age}</p>
+                        <p class="font-bold text-white uppercase font-serif tracking-wide">${dog.name}</p>
+                        <p class="text-[10px] text-slate-500 font-mono mt-0.5">${dog.type} • ${dog.coat}</p>
                     </div>
                 </div>
 
                 <div class="text-xs font-medium space-y-2 pt-1">
                     <div class="flex justify-between text-slate-400">
-                        <span>Base Adoption Tier Fee:</span>
-                        <span class="font-mono text-white font-bold">$${dog.price}.00</span>
+                        <span>Adoption Allocation Fee:</span>
+                        <span class="font-mono text-white font-medium">$${dog.price}.00</span>
                     </div>
                     <div class="flex justify-between text-slate-400">
-                        <span>Fulfillment Routing (${isTransport ? 'Ground Transport' : 'NJ Kennel Pickup'}):</span>
-                        <span class="font-mono text-white font-bold">${isTransport ? '+$25.00' : 'FREE'}</span>
+                        <span>Fulfillment (${isTransport ? 'Ground Carrier' : 'NJ Facility Handoff'}):</span>
+                        <span class="font-mono text-white font-medium">${isTransport ? '+$25.00' : 'FREE'}</span>
                     </div>
                     <div class="flex justify-between text-slate-400">
-                        <span>Regional Custom Duties / Tax:</span>
-                        <span class="font-mono text-emerald-500 font-extrabold">Exempt ($0.00)</span>
+                        <span>Regional Custom Tariffs / Duties:</span>
+                        <span class="font-mono text-emerald-500 font-bold">Exempt ($0.00)</span>
                     </div>
-                    <div class="flex justify-between text-xs font-black uppercase tracking-wider text-white pt-2 border-t border-slate-800">
-                        <span>Aggregated Total Outright Cost:</span>
-                        <span class="font-mono text-amber-500 text-sm">$${fullTotalSum}.00 USD</span>
+                    <div class="flex justify-between text-xs font-bold uppercase tracking-widest text-white pt-3 border-t border-slate-800">
+                        <span>Aggregate Total Settlement:</span>
+                        <span class="font-mono text-amber-500 text-sm font-bold">$${fullTotalSum}.00 USD</span>
                     </div>
                 </div>
 
