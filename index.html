@@ -51,14 +51,14 @@
                 Available Cane Corso Registries
             </h2>
             <p class="text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                Explore our newly expanded catalog of 24 premium options. All current listings are detailed below—reach out directly via Facebook to view live full-resolution media portfolios.
+                Explore our premium line-up. Puppies are priced at $500 and Elite Pre-Trained Adults are priced at $1000. Click on any dog's details button to review advanced certifications, bloodlines, and metrics.
             </p>
         </section>
 
         <section class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-3">
             <button onclick="setCategoryFilter('ALL')" id="cat-ALL" class="cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-amber-500 text-slate-950 shadow-lg">All Registries</button>
-            <button onclick="setCategoryFilter('Puppy')" id="cat-Puppy" class="cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-slate-900 border border-slate-800 text-slate-400">Standard Puppies</button>
-            <button onclick="setCategoryFilter('Pre-Trained Adult')" id="cat-Adult" class="cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-slate-900 border border-slate-800 text-slate-400">Pre-Trained Adults / Guardians</button>
+            <button onclick="setCategoryFilter('Puppy')" id="cat-Puppy" class="cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-slate-900 border border-slate-800 text-slate-400">Standard Puppies ($500)</button>
+            <button onclick="setCategoryFilter('Pre-Trained Adult')" id="cat-Adult" class="cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-slate-900 border border-slate-800 text-slate-400">Pre-Trained Adults ($1000)</button>
         </section>
 
         <main class="max-w-7xl mx-auto px-4 pb-16">
@@ -207,36 +207,113 @@
         </section>
     </div>
 
-    <script>
-        // Expanded 24-Dog Premium Registry Inventory (Puppies + Expanded Adult/Pre-Trained Class)
-        const puppyInventory = [
-            // --- Standard Puppies Block ---
-            { id: 1, name: "Zeus", type: "Puppy", price: 500, coat: "Dark Reverse Brindle", age: "9 Weeks", weight: "18.2 lbs", description: "Impeccable reverse striping with a stark white chest crest flash. Highly socialized and playful companion." },
-            { id: 2, name: "Athena", type: "Puppy", price: 500, coat: "Deep Slate Blue", age: "8 Weeks", weight: "15.8 lbs", description: "Clean athletic posture on solid bone frame. Features precision ear configurations and high environmental alert-drive." },
-            { id: 3, name: "Titan", type: "Puppy", price: 500, coat: "Velvet Smoked Blue", age: "8 Weeks", weight: "16.1 lbs", description: "Striking light contrast blue eyes coupled with a perfectly proportioned square muzzle. Calm temperament profile." },
-            { id: 4, name: "Bella", type: "Puppy", price: 500, coat: "Solid Blue / Silver", age: "8 Weeks", weight: "14.9 lbs", description: "Soft, beautiful silver-grey coat accenting soft natural drop ears. Highly affectionate demeanor, beautiful bone density." },
-            { id: 5, name: "Kratos", type: "Puppy", price: 500, coat: "Active Slate Gray", age: "9 Weeks", weight: "17.4 lbs", description: "Pure joy and active social drive parameters. High food drive, perfectly clean clear eyes, loves open areas." },
-            { id: 6, name: "Juno", type: "Puppy", price: 500, coat: "Light Gray Brindle", age: "8 Weeks", weight: "15.2 lbs", description: "Distinct light tiger brindle configuration highlighting rich gray patterns. Composed companion profile." },
-            { id: 7, name: "Odin", type: "Puppy", price: 500, coat: "Solid Steel Blue", age: "10 Weeks", weight: "21.0 lbs", description: "Elite lines with a heavy regal face block. Natural drop ears, excellent rear angulation setups, exceptionally friendly." },
-            { id: 8, name: "Roxy", type: "Puppy", price: 500, coat: "Carbon Black Brindle", age: "8 Weeks", weight: "14.3 lbs", description: "Glossy deep charcoal body layout with rich golden swirled points and white paw tips. Incredibly sweet disposition." },
-            { id: 9, name: "Remus", type: "Puppy", price: 500, coat: "Smoky Blue Micro Tones", age: "7 Weeks", weight: "11.6 lbs", description: "Early placement registry setup. Chunky, heavy-wrinkled profile indicating massive structural adult growth patterns." },
-            { id: 10, name: "Cleo", type: "Puppy", price: 500, coat: "Golden Tiger Brindle", age: "8 Weeks", weight: "16.5 lbs", description: "Thick, dark-striped fawn gold background coloring. Prominent wide chest platform development, high confidence metrics." },
-            { id: 11, name: "Litter Pool Alpha", type: "Puppy", price: 500, coat: "Brindle / Solid Mix", age: "7 Weeks", weight: "12.0 lbs", description: "Group tracking option representing our socialized, playful backyard-reared active puppies. Excellent group exploration instincts." },
-            { id: 12, name: "Thor", type: "Puppy", price: 500, coat: "Sleek Charcoal Blue", age: "8 Weeks", weight: "15.9 lbs", description: "Stunning low-stance frame with alert cropped ears and a clean white patch flash on the lower chest line. Very quiet handler response." },
+    <div id="details-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 max-w-2xl w-full rounded-3xl overflow-hidden shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
+            <div class="p-6 border-b border-slate-800 bg-slate-950/40 flex justify-between items-start">
+                <div>
+                    <span id="modal-dog-badge" class="text-[9px] font-black tracking-widest bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-full uppercase">PUPPY</span>
+                    <h3 id="modal-dog-name" class="text-2xl font-black text-white uppercase tracking-wide mt-1">Dog Name</h3>
+                    <p id="modal-dog-coat" class="text-xs text-amber-400 italic">Coat Pattern Specs</p>
+                </div>
+                <button onclick="closeDetailsModal()" class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white p-2 rounded-xl transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
 
-            // --- MASSIVE PRE-TRAINED ADULT & GUARDIAN MATRIX ---
-            { id: 13, name: "Shadow", type: "Pre-Trained Adult", price: 500, coat: "Pure Onyx Black", age: "2 Years", weight: "115.4 lbs", description: "Elite fully grown family protector asset. Features deep square chest block structure and high-tier defensive compliance training." },
-            { id: 14, name: "Freya", type: "Pre-Trained Adult", price: 500, coat: "Platinum Silver Gray", age: "18 Months", weight: "98.5 lbs", description: "Exhibits perfect structural confirmation stack lines on an elevated platform workspace. Impeccable obedience certified." },
-            { id: 15, name: "Ares", type: "Pre-Trained Adult", price: 500, coat: "Deep Forged Brindle", age: "2.5 Years", weight: "122.1 lbs", description: "Advanced personal perimeter guardian. House broken, master-level leash heel manners, neutral to friendly outside animals." },
-            { id: 16, name: "Valkyrie", type: "Pre-Trained Adult", price: 500, coat: "Steel Slate Gray", age: "22 Months", weight: "101.3 lbs", description: "Premium female estate watch asset. High environmental clarity, structural density masterclass, fully house integrated." },
-            { id: 17, name: "Goliath", type: "Pre-Trained Adult", price: 500, coat: "Carbon Charcoal Black", age: "3 Years", weight: "130.4 lbs", description: "Massive alpha structural footprint. Fully trained compound defense protocols completed. Highly affectionate handler loyalty." },
-            { id: 18, name: "Scylla", type: "Pre-Trained Adult", price: 500, coat: "Reverse Fawn Tiger", age: "19 Months", weight: "94.8 lbs", description: "Elite off-leash response tracking certified. Highly intelligent partner build, perfect companion dynamics for active estates." },
-            { id: 19, name: "Rebel", type: "Pre-Trained Adult", price: 500, coat: "Smoked Blue Mask Fawn", age: "2 Years", weight: "118.6 lbs", description: "Rich traditional mask coat styling. Gentle giant persona inside family boundaries, high-alert warning presentation at outer gates." },
-            { id: 20, name: "Nyx", type: "Pre-Trained Adult", price: 500, coat: "Jet Obsidian Solid", age: "20 Months", weight: "99.2 lbs", description: "Agile, high-drive female asset. Outstanding athletic jump and tracking metrics, fully house-broken, alert structural awareness." },
-            { id: 21, name: "Caesar", type: "Pre-Trained Adult", price: 500, coat: "Dark Slate Brindle", age: "3.5 Years", weight: "126.8 lbs", description: "Senior rank estate defender asset. Fully seasoned property watch experience, incredibly calm demeanor, zero voice command lag." },
-            { id: 22, name: "Hera", type: "Pre-Trained Adult", price: 500, coat: "Rich Chestnut Brindle", age: "21 Months", weight: "104.0 lbs", description: "Beautiful swirled high-contrast coat presentation. Extremely maternal lines, fantastic with kids, prompt alert system properties." },
-            { id: 23, name: "Brutus", type: "Pre-Trained Adult", price: 500, coat: "Smoky Silver Slate", age: "15 Months", weight: "111.5 lbs", description: "Young adult powerhouse transitioning out of secondary obedience tracks. Clean bone structures, massive head block formation." },
-            { id: 24, name: "Xena", type: "Pre-Trained Adult", price: 500, coat: "Velvet Jet Black", age: "2.2 Years", weight: "96.7 lbs", description: "High focus active protector model. Certified in vehicle threat mitigation and home secure line preservation boundaries." }
+            <div class="p-6 space-y-6 max-h-[70vh] overflow-y-auto no-scrollbar text-xs">
+                <div class="grid grid-cols-3 gap-3 text-center">
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800/60">
+                        <span class="text-slate-500 text-[9px] uppercase tracking-wider block mb-0.5">Developmental Age</span>
+                        <strong id="modal-dog-age" class="text-white text-sm font-mono">8 Weeks</strong>
+                    </div>
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800/60">
+                        <span class="text-slate-500 text-[9px] uppercase tracking-wider block mb-0.5">Current Weight</span>
+                        <strong id="modal-dog-weight" class="text-white text-sm font-mono">15 lbs</strong>
+                    </div>
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800/60">
+                        <span class="text-slate-500 text-[9px] uppercase tracking-wider block mb-0.5">Base Registry Fee</span>
+                        <strong id="modal-dog-price" class="text-amber-500 text-sm font-mono">$500 USD</strong>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="space-y-1">
+                        <h4 class="text-white font-black uppercase tracking-wider text-[11px] flex items-center gap-1.5">📝 Comprehensive Overview Profile</h4>
+                        <p id="modal-dog-desc" class="text-slate-400 leading-relaxed text-xs">Detailed summary text goes here layout profile.</p>
+                    </div>
+
+                    <hr class="border-slate-800/60">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-2 bg-slate-950/40 border border-slate-800 p-4 rounded-2xl">
+                            <h5 class="text-amber-500 font-bold uppercase tracking-wider text-[10px]">🧠 Behavioral & Drive Diagnostics</h5>
+                            <ul class="space-y-1.5 text-slate-300 font-medium">
+                                <li class="flex justify-between"><span>Environmental Stability:</span> <strong class="text-white font-mono">Excellent (High)</strong></li>
+                                <li class="flex justify-between"><span>Social Companion Drive:</span> <strong class="text-white font-mono">Balanced / Attentive</strong></li>
+                                <li class="flex justify-between"><span>Family Guard Compatibility:</span> <strong class="text-white font-mono">100% Certified Safe</strong></li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-2 bg-slate-950/40 border border-slate-800 p-4 rounded-2xl">
+                            <h5 class="text-amber-500 font-bold uppercase tracking-wider text-[10px]">🛡️ Training Status Breakdown</h5>
+                            <ul class="space-y-1.5 text-slate-300 font-medium">
+                                <li class="flex justify-between"><span>Leash Compliance Matrix:</span> <strong id="modal-dog-leash" class="text-white font-mono">Intro Stage</strong></li>
+                                <li class="flex justify-between"><span>House Breaking Protocol:</span> <strong id="modal-dog-house" class="text-white font-mono">In Progress</strong></li>
+                                <li class="flex justify-between"><span>Threat Alert Level:</span> <strong id="modal-dog-threat" class="text-white font-mono">Passive Guard</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-950/80 border border-slate-800 p-4 rounded-2xl space-y-2">
+                        <h5 class="text-emerald-400 font-bold uppercase tracking-wider text-[10px] flex items-center gap-1">🩺 Medical Clearance & Health Dossier</h5>
+                        <p class="text-slate-400 leading-relaxed text-[11px]">
+                            Comes fully accompanied by official purebred registration papers registry slips, multi-point standard veterinary health certification reports, and up-to-date age-appropriate vaccination records. De-worming regimes completed at week intervals. Parents screen-cleared for optimal structural skeletal joint and hip alignments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-slate-800 bg-slate-950/60 flex gap-3">
+                <button id="modal-buy-btn" class="flex-1 bg-amber-500 text-slate-950 font-black py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-lg hover:bg-amber-600 transition-all">
+                    Initiate Purchase Route
+                </button>
+                <button onclick="closeDetailsModal()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-5 rounded-xl text-xs uppercase tracking-wider transition-all border border-slate-700">
+                    Dismiss
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Expanded 24-Dog Premium Registry Inventory (Puppies = $500, Pre-Trained Adults = $1000)
+        const puppyInventory = [
+            // --- Standard Puppies Block ($500) ---
+            { id: 1, name: "Zeus", type: "Puppy", price: 500, coat: "Dark Reverse Brindle", age: "9 Weeks", weight: "18.2 lbs", description: "Impeccable reverse striping with a stark white chest crest flash. Highly socialized, exceptionally playful, and exhibits superb tracking focus during early developmental handling sequences." },
+            { id: 2, name: "Athena", type: "Puppy", price: 500, coat: "Deep Slate Blue", age: "8 Weeks", weight: "15.8 lbs", description: "Clean athletic posture on an incredibly solid bone structure frame. Features precision ear crop balancing parameters and a high-tier environmental curious drive profile." },
+            { id: 3, name: "Titan", type: "Puppy", price: 500, coat: "Velvet Smoked Blue", age: "8 Weeks", weight: "16.1 lbs", description: "Striking light contrast hazel-blue eyes coupled with a perfectly proportioned square muzzle block. Calm, patient temperament structure ideal for multi-member home layouts." },
+            { id: 4, name: "Bella", type: "Puppy", price: 500, coat: "Solid Blue / Silver", age: "8 Weeks", weight: "14.9 lbs", description: "Soft, beautifully unique silver-grey coat accenting soft natural drop ears. Highly affectionate, loves human contact tracking loops, excellent vet diagnostic clearance." },
+            { id: 5, name: "Kratos", type: "Puppy", price: 500, coat: "Active Slate Gray", age: "9 Weeks", weight: "17.4 lbs", description: "Expresses high joy markers and robust social pack drive values. Extreme focus during food routing training, perfectly clear eyes, raised meticulously in an open home system." },
+            { id: 6, name: "Juno", type: "Puppy", price: 500, coat: "Light Gray Brindle", age: "8 Weeks", weight: "15.2 lbs", description: "Distinct tiger brindle configuration highlighting rare gray base patterns. Perfectly straight leg alignment lines with a stable, highly composed standard behavior template." },
+            { id: 7, name: "Odin", type: "Puppy", price: 500, coat: "Solid Steel Blue", age: "10 Weeks", weight: "21.0 lbs", description: "Elite potential confirmation build with a massive regal head block form factor. Natural ears, deep wide stance density metrics, highly approachable family profile." },
+            { id: 8, name: "Roxy", type: "Puppy", price: 500, coat: "Carbon Black Brindle", age: "8 Weeks", weight: "14.3 lbs", description: "Glossy deep charcoal body layout with rich golden swirled points and white paw accents. Incredibly sweet disposition, highly alert environmental alarm triggers." },
+            { id: 9, name: "Remus", type: "Puppy", price: 500, coat: "Smoky Blue Micro Tones", age: "7 Weeks", weight: "11.6 lbs", description: "Early placement registry setup. Heavy skin wrinkling and chunkier footprint layout indicating substantial adult muscle growth curves. Strong clear respiratory values." },
+            { id: 10, name: "Cleo", type: "Puppy", price: 500, coat: "Golden Tiger Brindle", age: "8 Weeks", weight: "16.5 lbs", description: "Thick, high-contrast dark striping over a deep fawn gold background. Prominent wide front chest arch platform development, very bold explorer metrics." },
+            { id: 11, name: "Litter Pool Alpha", type: "Puppy", price: 500, coat: "Brindle / Solid Mix", age: "7 Weeks", weight: "12.0 lbs", description: "Group tracking choice reflecting our socialized, playful backyard-reared active purebred puppies. Excellent group exploration drives and highly robust structural joints." },
+            { id: 12, name: "Thor", type: "Puppy", price: 500, coat: "Sleek Charcoal Blue", age: "8 Weeks", weight: "15.9 lbs", description: "Stunning lower blocky stance frame with alert cropped ears and a sharp white lightning patch flash on the lower chest cavity. Very quiet and focused responder." },
+
+            // --- FIXED PRE-TRAINED ADULT & GUARDIAN MATRIX ($1000) ---
+            { id: 13, name: "Shadow", type: "Pre-Trained Adult", price: 1000, coat: "Pure Onyx Black", age: "2 Years", weight: "115.4 lbs", description: "Elite fully grown estate and family protection asset. Certified master of property boundary loops, neutral social presence until threatened, precision verbal drop-command triggers." },
+            { id: 14, name: "Freya", type: "Pre-Trained Adult", price: 1000, coat: "Platinum Silver Gray", age: "18 Months", weight: "98.5 lbs", description: "Exhibits perfect structural confirmation stack lines on an elevated platform workspace. Impeccable obedience tracking certified with advanced public space navigation logic." },
+            { id: 15, name: "Ares", type: "Pre-Trained Adult", price: 1000, coat: "Deep Forged Brindle", age: "2.5 Years", weight: "122.1 lbs", description: "Advanced personal perimeter guardian. 100% house-broken, master-level off-leash heel commands, zero target drift, completely accustomed to loud noises and chaotic environments." },
+            { id: 16, name: "Valkyrie", type: "Pre-Trained Adult", price: 1000, coat: "Steel Slate Gray", age: "22 Months", weight: "101.3 lbs", description: "Premium female estate watch asset. Exceptional perimeter assessment instincts, high clarity situational awareness, loving home companion manners." },
+            { id: 17, name: "Goliath", type: "Pre-Trained Adult", price: 1000, coat: "Carbon Charcoal Black", age: "3 Years", weight: "130.4 lbs", description: "Massive physical footprint with highly imposing structural power lines. Advanced defensive compound alert protocols completed. Deeply loyal, affectionate family guardian build." },
+            { id: 18, name: "Scylla", type: "Pre-Trained Adult", price: 1000, coat: "Reverse Fawn Tiger", age: "19 Months", weight: "94.8 lbs", description: "Elite agility asset with lightning-fast off-leash response timing parameters. Outstanding dynamic handler sync, highly intelligent partner ideal for large dynamic acreage." },
+            { id: 19, name: "Rebel", type: "Pre-Trained Adult", price: 1000, coat: "Smoked Blue Mask Fawn", age: "2 Years", weight: "118.6 lbs", description: "Rich traditional deep mask coat styling. Soft gentle giant persona inside family living zones, powerful proactive warning presentation at outer secure gates." },
+            { id: 20, name: "Nyx", type: "Pre-Trained Adult", price: 1000, coat: "Jet Obsidian Solid", age: "20 Months", weight: "99.2 lbs", description: "Agile, energetic female working asset. High-drive tracking capabilities, fully crate settled, silent watch protocols active, immaculate vet score profile." },
+            { id: 21, name: "Caesar", type: "Pre-Trained Adult", price: 1000, coat: "Dark Slate Brindle", age: "3.5 Years", weight: "126.8 lbs", description: "Senior rank estate defender asset. Years of seasoned property preservation experience, exceptionally steady stoic demeanor, flawless reaction control accuracy." },
+            { id: 22, name: "Hera", type: "Pre-Trained Adult", price: 1000, coat: "Rich Chestnut Brindle", age: "21 Months", weight: "104.0 lbs", description: "Stunning swirled high-contrast coat presentation lines. Intuitively protective maternal lines, highly attentive to young children, crisp and responsive alert systems." },
+            { id: 23, name: "Brutus", type: "Pre-Trained Adult", price: 1000, coat: "Smoky Silver Slate", age: "15 Months", weight: "111.5 lbs", description: "Young adult powerhouse transitioning out of secondary complex obedience tracks. Clean massive head formation, high play drive balanced with structural mass." },
+            { id: 24, name: "Xena", type: "Pre-Trained Adult", price: 1000, coat: "Velvet Jet Black", age: "2.2 Years", weight: "96.7 lbs", description: "High-focus tactical threat mitigation asset. Specialized training in vehicular environment security and residential structural line access control systems." }
         ];
 
         let activeCategoryFilter = 'ALL';
@@ -278,9 +355,9 @@
                 container.innerHTML += `
                     <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-slate-700 transition-all flex flex-col justify-between group shadow-xl">
                         <div class="relative aspect-square bg-slate-950 flex flex-col items-center justify-center p-6 text-center border-b border-slate-800/60">
-                            <svg class="w-10 h-10 text-slate-700 mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 017.5 0z"/></svg>
-                            <span class="text-[11px] font-black uppercase tracking-wider text-amber-500 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20 mb-1">Image Available</span>
-                            <p class="text-[10px] font-bold text-slate-400 max-w-[180px] leading-normal">Ask for full media portfolio on Facebook Chat</p>
+                            <svg class="w-10 h-10 text-slate-700 mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 00-1.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 017.5 0z"/></svg>
+                            <span class="text-[11px] font-black uppercase tracking-wider text-amber-500 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20 mb-1">Image Not Available</span>
+                            <p class="text-[10px] font-bold text-slate-400 max-w-[180px] leading-normal">Ask for current layout photos on Facebook Chat</p>
                             
                             <span class="absolute top-3 right-3 bg-slate-900/90 backdrop-blur-md text-amber-500 text-xs font-black font-mono px-3 py-1.5 rounded-xl border border-slate-800 shadow-xl">$${dog.price} USD</span>
                             
@@ -293,22 +370,67 @@
                             </div>
                         </div>
 
-                        <div class="p-4 space-y-4 flex-grow flex flex-col justify-between">
+                        <div class="p-4 space-y-3 flex-grow flex flex-col justify-between">
                             <div class="space-y-1.5 text-xs">
                                 <div class="bg-slate-950/50 border border-slate-800 px-3 py-2 rounded-xl text-slate-400 font-mono flex justify-between text-[10px]">
                                     <span>Age: <strong>${dog.age}</strong></span>
                                     <span>Weight: <strong>${dog.weight}</strong></span>
                                 </div>
-                                <p class="text-slate-400 leading-relaxed text-[11px] line-clamp-3">${dog.description}</p>
+                                <p class="text-slate-400 leading-relaxed text-[11px] line-clamp-2">${dog.description}</p>
                             </div>
 
-                            <button onclick="triggerCheckoutFlow(${dog.id})" class="w-full bg-slate-800 hover:bg-amber-500 text-white hover:text-slate-950 font-black py-2.5 px-4 rounded-xl transition-all uppercase tracking-wider text-[10px]">
-                                Buy Now (PayPal Only)
-                            </button>
+                            <div class="space-y-2 pt-1">
+                                <button onclick="openDetailsModal(${dog.id})" class="w-full bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white font-bold py-2 rounded-xl transition-all uppercase tracking-wider text-[10px] flex items-center justify-center gap-1">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                    View Blueprint & Details
+                                </button>
+                                <button onclick="triggerCheckoutFlow(${dog.id})" class="w-full bg-slate-800 hover:bg-amber-500 text-white hover:text-slate-950 font-black py-2.5 rounded-xl transition-all uppercase tracking-wider text-[10px]">
+                                    Buy Now (PayPal Only)
+                                </button>
+                            </div>
                         </div>
                     </div>
                 `;
             });
+        }
+
+        // Modal Presentation Dynamic Data Injection Engine
+        function openDetailsModal(dogId) {
+            const dog = puppyInventory.find(item => item.id === dogId);
+            if (!dog) return;
+
+            document.getElementById('modal-dog-badge').innerText = dog.type === 'Puppy' ? 'PUPPY SELECTION' : 'ELITE PRE-TRAINED ADULT';
+            document.getElementById('modal-dog-name').innerText = dog.name;
+            document.getElementById('modal-dog-coat').innerText = `${dog.coat} Purebred Configuration`;
+            document.getElementById('modal-dog-age').innerText = dog.age;
+            document.getElementById('modal-dog-weight').innerText = dog.weight;
+            document.getElementById('modal-dog-price').innerText = `$${dog.price} USD`;
+            document.getElementById('modal-dog-desc').innerText = dog.description;
+
+            // Set dynamic training metric content depending on class rules
+            if (dog.type === 'Puppy') {
+                document.getElementById('modal-dog-leash').innerText = "Intro / Shaping";
+                document.getElementById('modal-dog-house').innerText = "Crate Conditioning";
+                document.getElementById('modal-dog-threat').innerText = "Passive Companion";
+            } else {
+                document.getElementById('modal-dog-leash').innerText = "100% Certified Off-Leash";
+                document.getElementById('modal-dog-house').innerText = "Fully House Integrated";
+                document.getElementById('modal-dog-threat').innerText = "Active Command Guard";
+            }
+
+            // Assign immediate checkout routing to the inner button
+            document.getElementById('modal-buy-btn').onclick = function() {
+                closeDetailsModal();
+                triggerCheckoutFlow(dog.id);
+            };
+
+            document.getElementById('details-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDetailsModal() {
+            document.getElementById('details-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
         }
 
         function triggerCheckoutFlow(dogId) {
