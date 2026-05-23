@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Royal Cane Corso - Elite Purebred Companions</title>
+    <title>Royal Cane Corso - Elite Purebred Registries</title>
     <!-- Tailwind CSS Engine CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -12,7 +12,8 @@
             theme: {
                 extend: {
                     colors: {
-                        amber: { 500: '#d97706', 600: '#b45309' }
+                        amber: { 500: '#d97706', 600: '#b45309' },
+                        paypal: { blue: '#0070ba', darkblue: '#003087' }
                     }
                 }
             }
@@ -21,457 +22,422 @@
     <style>
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-500/30 selection:text-amber-200">
 
-    <!-- Top Navigation Bar -->
-    <header class="border-b sticky top-0 z-50 backdrop-blur-md transition-colors border-slate-800 bg-slate-950/80" id="navbar">
+    <!-- Global Layout Header -->
+    <header class="border-b sticky top-0 z-50 backdrop-blur-md border-slate-800 bg-slate-950/80">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3 cursor-pointer" onclick="resetAllFilters()">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('store')">
                 <svg class="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 <div>
-                    <h1 class="text-xl font-black tracking-wider uppercase text-white id-brand-text">Royal Corso</h1>
-                    <p class="text-[10px] tracking-widest text-slate-400 font-bold uppercase">Purebred Legacy Registry</p>
+                    <h1 class="text-xl font-black tracking-wider uppercase text-white">Royal Corso</h1>
+                    <p class="text-[10px] tracking-widest text-slate-400 font-bold uppercase">NJ Purebred Registry Network</p>
                 </div>
             </div>
-            
-            <div class="flex items-center gap-4">
-                <button onclick="toggleTheme()" class="p-2 rounded-xl border transition-all bg-slate-900 border-slate-800 text-amber-400 id-theme-btn">
-                    <svg id="sun-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 7a5 5 0 100 10 5 5 0 000-10z"/></svg>
-                </button>
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                USA Regional Desk Only
             </div>
         </div>
     </header>
 
-    <!-- Marketing Hero Area -->
-    <section id="hero-section" class="max-w-7xl mx-auto px-4 py-12 text-center space-y-4">
-        <span class="inline-flex items-center gap-1.5 text-emerald-400 text-xs font-bold uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-            Complete Health, DNA, & Vaccine Clearance Certified
-        </span>
-        <h2 class="text-4xl sm:text-5xl font-black tracking-tight text-white uppercase id-main-heading">
-            Available Cane Corso Registries
-        </h2>
-        <p class="text-sm text-slate-400 max-w-2xl mx-auto">
-            Explore our expanded catalog of 30 premier purebred listings. Drill down using precise multi-attribute filtering options to find your ideal home guardian.
-        </p>
-    </section>
+    <!-- ================= PAGE 1: AVAILABLE PUPPIES CATALOG ================= -->
+    <div id="page-store" class="page-view space-y-12 py-8">
+        <!-- Marketing Hero Intro Matrix -->
+        <section class="max-w-7xl mx-auto px-4 text-center space-y-4">
+            <span class="inline-flex items-center gap-1.5 text-amber-400 text-xs font-bold uppercase tracking-widest bg-amber-500/10 px-4 py-1.5 rounded-full border border-amber-500/20">
+                📍 Elite Guardian Kennel Base Location: New Jersey, USA
+            </span>
+            <h2 class="text-4xl sm:text-5xl font-black tracking-tight text-white uppercase">
+                Available Cane Corso Registries
+            </h2>
+            <p class="text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                Explore our full catalog of **30 premium purebred options**. Filter down your selection by configuration class using the action toggles below.
+            </p>
+        </section>
 
-    <!-- Search and Advanced Multi-Filter Panel -->
-    <section id="filter-section" class="max-w-7xl mx-auto px-4 mb-8">
-        <div class="p-5 rounded-2xl border flex flex-col gap-4 bg-slate-900 border-slate-800 id-filter-panel">
-            
-            <!-- Row 1: Search & Age/Class Filter Tabs -->
-            <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
-                <div class="relative w-full lg:w-80">
-                    <span class="absolute left-3 top-3 text-slate-500">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    </span>
-                    <input 
-                        type="text" 
-                        id="search-input"
-                        oninput="renderGrid()"
-                        placeholder="Search name, behavior profile..." 
-                        class="w-full pl-9 pr-4 py-2 text-xs rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500/40 transition-all bg-slate-950 border-slate-800 text-white placeholder-slate-600 id-input"
-                    >
-                </div>
+        <!-- Category Filter Controls Row -->
+        <section class="max-w-7xl mx-auto px-4 flex justify-center gap-3">
+            <button onclick="setCategoryFilter('ALL')" id="cat-ALL" class="cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-amber-500 text-slate-950 shadow-lg">All Registries (30)</button>
+            <button onclick="setCategoryFilter('Puppy')" id="cat-Puppy" class="cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-slate-900 border border-slate-800 text-slate-400">Standard Puppies (18)</button>
+            <button onclick="setCategoryFilter('Pre-Trained Teen')" id="cat-Teen" class="cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-slate-900 border border-slate-800 text-slate-400">Pre-Trained Teens (12)</button>
+        </section>
 
-                <div class="flex gap-2 w-full lg:w-auto overflow-x-auto no-scrollbar">
-                    <button onclick="setCategoryFilter('ALL')" id="btn-cat-ALL" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap bg-amber-500 text-slate-950 shadow-md">All Classes (<span id="count-all">30</span>)</button>
-                    <button onclick="setCategoryFilter('Puppy')" id="btn-cat-Puppy" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap bg-slate-950 border border-slate-800 text-slate-400">Puppies</button>
-                    <button onclick="setCategoryFilter('Pre-Trained Teen')" id="btn-cat-Teen" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap bg-slate-950 border border-slate-800 text-slate-400">Pre-Trained Teens</button>
-                </div>
+        <!-- Dynamic Registry Grid Framework -->
+        <main class="max-w-7xl mx-auto px-4 pb-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="puppy-catalog-target">
+                <!-- Javascript maps all 30 purebred list elements live here -->
             </div>
-
-            <!-- Row 2: Secondary Dropdown Filters -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-slate-800/60 id-filter-divider">
-                <div>
-                    <label class="block text-[10px] font-bold uppercase text-slate-400 tracking-wider mb-1">Coat Color / Pattern</label>
-                    <select id="filter-coat" onchange="renderGrid()" class="w-full px-3 py-2 text-xs rounded-xl border bg-slate-950 border-slate-800 text-white focus:outline-none id-input">
-                        <option value="ALL">All Coats</option>
-                        <option value="Solid Black">Solid Black</option>
-                        <option value="Blue">Blue / Grey</option>
-                        <option value="Brindle">Brindle (All Varieties)</option>
-                        <option value="Fawn">Fawn / Formentino</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-[10px] font-bold uppercase text-slate-400 tracking-wider mb-1">Gender</label>
-                    <select id="filter-gender" onchange="renderGrid()" class="w-full px-3 py-2 text-xs rounded-xl border bg-slate-950 border-slate-800 text-white focus:outline-none id-input">
-                        <option value="ALL">All Genders</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-[10px] font-bold uppercase text-slate-400 tracking-wider mb-1">Max Investment Range</label>
-                    <select id="filter-price" onchange="renderGrid()" class="w-full px-3 py-2 text-xs rounded-xl border bg-slate-950 border-slate-800 text-white focus:outline-none id-input">
-                        <option value="ALL">Any Budget</option>
-                        <option value="500">Up to $500 (Puppy Base)</option>
-                        <option value="1000">Up to $1000 (Elite/Trained Tiers)</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Main Layout Matrix -->
-    <main class="max-w-7xl mx-auto px-4 pb-24 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        <!-- Grid Content Container -->
-        <div class="lg:col-span-2 space-y-6">
-            <div id="dogs-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- Javascript dynamically renders 30 custom items here -->
-            </div>
-        </div>
-
-        <!-- Checkout Workspace and Application Form Sidebar -->
-        <div class="space-y-6">
-            
-            <!-- Reservation Operations Center -->
-            <div class="p-6 rounded-2xl border bg-slate-900 border-slate-800 id-sidebar-card">
-                <h3 class="text-lg font-black uppercase tracking-wider mb-4 text-white id-sidebar-title">Adoption Desk</h3>
-                <div id="checkout-workspace">
-                    <div class="py-12 text-center border border-dashed border-slate-800 rounded-xl p-4 bg-slate-950/40">
-                        <p class="text-xs font-bold text-slate-400">No Registry Active</p>
-                        <p class="text-[11px] text-slate-500 mt-0.5 px-2">Please pick any of our 30 purebred profiles to open the secure automated PayPal portal system.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Application Submission Form -->
-            <div class="p-6 rounded-2xl border bg-slate-900 border-slate-800 id-sidebar-card">
-                <h3 class="text-base font-black uppercase tracking-wider mb-2 text-white id-sidebar-title">Adoption Questionnaire</h3>
-                <p class="text-[11px] text-slate-500 mb-4 leading-relaxed">Submit your credentials profile context data to pre-qualify structural ownership criteria evaluations.</p>
-                
-                <div id="form-container">
-                    <form onsubmit="handleForm(event)" class="space-y-3 text-xs">
-                        <div class="space-y-1">
-                            <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider">Full Legal Name</label>
-                            <input type="text" required class="w-full px-3 py-2 border rounded-xl focus:outline-none bg-slate-950 border-slate-800 text-white id-input">
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider">Email Communication Path</label>
-                            <input type="email" required class="w-full px-3 py-2 border rounded-xl focus:outline-none bg-slate-950 border-slate-800 text-white id-input">
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider">Large Breed Experience Summary</label>
-                            <input type="text" required placeholder="e.g., Owned Mastiffs for 5 years" class="w-full px-3 py-2 border rounded-xl focus:outline-none bg-slate-950 border-slate-800 text-white id-input">
-                        </div>
-                        <button type="submit" class="w-full mt-2 bg-slate-800 text-slate-200 hover:bg-slate-700 font-bold py-2.5 px-4 rounded-xl transition-all uppercase tracking-wider text-[10px]">
-                            File Screening Registry Form
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Profile View Overlay Modal (Standalone Page Simulation) -->
-    <div id="profile-modal" class="fixed inset-0 z-50 overflow-y-auto bg-slate-950/90 hidden backdrop-blur-sm p-4 justify-center items-center">
-        <div class="max-w-4xl w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 relative max-h-[90vh] overflow-y-auto id-modal-body">
-            <button onclick="closeProfile()" class="absolute top-4 right-4 text-slate-400 hover:text-white font-bold uppercase text-xs tracking-wider flex items-center gap-1">
-                ✕ Close
-            </button>
-            <div id="modal-content-target">
-                <!-- Profile payload dynamic structural placement -->
-            </div>
-        </div>
+        </main>
     </div>
 
-    <!-- Data Engine and System Scripts -->
+
+    <!-- ================= PAGE 2: SECURE USER GATEWAY CHECKOUT ================= -->
+    <div id="page-checkout" class="page-view hidden space-y-10 py-10 bg-slate-900/40 min-h-screen border-t border-slate-950">
+        <section class="max-w-6xl mx-auto px-4">
+            <button onclick="navigateTo('store')" class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-all uppercase tracking-wider mb-6 bg-slate-900/80 border border-slate-800 px-4 py-2 rounded-xl">
+                ← Return to Puppy Matrix Catalog
+            </button>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left Content Form Area: Address Inputs & Transport Methods -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-4 shadow-xl">
+                        <div class="border-b border-slate-800 pb-3 flex justify-between items-center">
+                            <div>
+                                <h3 class="text-lg font-black uppercase text-white tracking-wider">1. Logistics Setup Verification</h3>
+                                <p class="text-xs text-slate-400">Specify handling deployment targets to compute real-time custom processing fees.</p>
+                            </div>
+                            <span class="text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/20 font-black px-2.5 py-1 rounded-md uppercase tracking-wider">Step 1 of 2</span>
+                        </div>
+
+                        <!-- Address Collection Field Form Elements -->
+                        <form id="shipping-address-form" class="space-y-4 text-xs" oninput="calculateOrderTotals()">
+                            <div class="space-y-1.5">
+                                <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider block">Full Legal Recipient Name</label>
+                                <input type="text" id="cust-name" required placeholder="John Doe" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500 transition-all placeholder:text-slate-700">
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider block">Street Delivery Address Line</label>
+                                <input type="text" id="cust-address" required placeholder="123 Jersey Ave" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500 transition-all placeholder:text-slate-700">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div class="space-y-1.5">
+                                    <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider block">City</label>
+                                    <input type="text" id="cust-city" required placeholder="Newark" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500 transition-all placeholder:text-slate-700">
+                                </div>
+                                <div class="space-y-1.5">
+                                    <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider block">State (USA Only)</label>
+                                    <input type="text" id="cust-state" required placeholder="NJ" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500 transition-all placeholder:text-slate-700">
+                                </div>
+                                <div class="space-y-1.5">
+                                    <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider block">Zip Code</label>
+                                    <input type="text" id="cust-zip" required placeholder="07101" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500 transition-all placeholder:text-slate-700">
+                                </div>
+                            </div>
+
+                            <!-- Fulfillment Distribution Selector Blocks -->
+                            <div class="pt-4 border-t border-slate-800/60 space-y-2">
+                                <label class="text-[10px] font-bold uppercase text-slate-400 tracking-wider block mb-1">Fulfillment Delivery Protocols</label>
+                                
+                                <!-- Radio Block Option A: Local New Jersey Facility Pick up -->
+                                <label class="block relative p-4 rounded-xl border bg-slate-950 border-slate-800 cursor-pointer hover:border-slate-700 transition-all select-none">
+                                    <div class="flex items-start gap-3">
+                                        <input type="radio" name="fulfillment_mode" id="mode-pickup" value="PICKUP" checked class="mt-1 accent-amber-500 scale-110">
+                                        <div>
+                                            <div class="flex items-center gap-2">
+                                                <span class="text-xs font-black text-white uppercase tracking-wide">Direct Local Kennel Pickup</span>
+                                                <span class="text-[9px] font-extrabold bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded text-emerald-400">FREE</span>
+                                            </div>
+                                            <p class="text-[11px] text-slate-400 mt-0.5 leading-relaxed">Arrange a secure in-person handoff sequence directly at our primary facility coordinates out of **New Jersey** by scheduling an appointment slot.</p>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <!-- Radio Block Option B: Professional Climate Controlled Transport Route -->
+                                <label class="block relative p-4 rounded-xl border bg-slate-950 border-slate-800 cursor-pointer hover:border-slate-700 transition-all select-none">
+                                    <div class="flex items-start gap-3">
+                                        <input type="radio" name="fulfillment_mode" id="mode-transport" value="TRANSPORT" class="mt-1 accent-amber-500 scale-110">
+                                        <div>
+                                            <div class="flex items-center gap-2">
+                                                <span class="text-xs font-black text-white uppercase tracking-wide">Climate-Controlled K9 Ground Transport</span>
+                                                <span class="text-[9px] font-extrabold bg-amber-500/10 border border-amber-500/20 px-1.5 py-0.5 rounded text-amber-400 font-mono">+$25.00 FLAT FEE</span>
+                                            </div>
+                                            <p class="text-[11px] text-slate-400 mt-0.5 leading-relaxed">We will safely route and deliver the puppy directly to your validated USA location box utilizing specialized cross-country safe transit vehicles.</p>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Step 2 Block: Explicit Core PayPal Tutorial Processing Workspace -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-6 shadow-xl">
+                        <div class="border-b border-slate-800 pb-3">
+                            <h3 class="text-lg font-black uppercase text-white tracking-wider">2. Verified PayPal Checkout Guide</h3>
+                            <p class="text-xs text-slate-400">Follow these strict sequential procedures to process your purchase order validation.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                            <div class="p-4 bg-slate-950 border border-slate-800/80 rounded-2xl space-y-1">
+                                <div class="flex items-center justify-between text-amber-500 font-mono font-black mb-1">
+                                    <span>PHASE 01</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                </div>
+                                <h4 class="font-bold text-white uppercase text-[11px]">Initialize Portal Path</h4>
+                                <p class="text-[11px] text-slate-400 leading-relaxed">Click the blue checkout trigger. Our layout calculates the total and routes you directly into the live PayPal payment gateway link.</p>
+                            </div>
+
+                            <div class="p-4 bg-slate-950 border border-slate-800/80 rounded-2xl space-y-1">
+                                <div class="flex items-center justify-between text-amber-500 font-mono font-black mb-1">
+                                    <span>PHASE 02</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                                </div>
+                                <h4 class="font-bold text-white uppercase text-[11px]">Authenticate & Sync Address</h4>
+                                <p class="text-[11px] text-slate-400 leading-relaxed">Sign in or check out as a guest. Make sure the shipping destination parameters inside PayPal match your form address here for buyer protection clearance.</p>
+                            </div>
+
+                            <div class="p-4 bg-slate-950 border border-slate-800/80 rounded-2xl space-y-1">
+                                <div class="flex items-center justify-between text-amber-500 font-mono font-black mb-1">
+                                    <span>PHASE 03</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 012 2H5a2 2 0 01-2-2V9zM3 9h18"/></svg>
+                                </div>
+                                <h4 class="font-bold text-white uppercase text-[11px]">Authorize Transaction</h4>
+                                <p class="text-[11px] text-slate-400 leading-relaxed">Verify the exact calculated line amount matches, capture your final invoice screen proof state, and execute authorization.</p>
+                            </div>
+
+                            <div class="p-4 bg-slate-950 border border-slate-800/80 rounded-2xl space-y-1">
+                                <div class="flex items-center justify-between text-amber-500 font-mono font-black mb-1">
+                                    <span>PHASE 04</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                                </div>
+                                <h4 class="font-bold text-white uppercase text-[11px]">Forward Receipt Confirmation</h4>
+                                <p class="text-[11px] text-slate-400 leading-relaxed">Bring the transaction metadata confirmation slip straight to our Facebook support chat line to coordinate final transit pickup timings.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-950/40 border border-blue-900/50 rounded-2xl p-4 flex gap-3 items-start text-xs text-blue-300">
+                            <span class="text-base">🛡️</span>
+                            <p class="leading-relaxed">
+                                <strong class="text-white uppercase font-black text-[10px] tracking-wider block mb-0.5">Secure Escrow Processing Policy</strong>
+                                We exclusively route transactions utilizing official PayPal parameters. This protocol guarantees mutual safety assurances across large-breed purebred registries.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar Sticky Container Card: Order Summary & Interactive Payload Portal -->
+                <div class="lg:col-span-5 sticky top-24 space-y-4">
+                    <div id="checkout-receipt-card" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-4">
+                        <!-- Calculations dynamically injection through JS operations -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Core Logic Engine Scripts System -->
     <script>
-        const dogsInventory = [
+        // High-Quality Asset Blocks of Real Cane Corsos matching standard breed variations perfectly
+        const imgBlack = "https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=500&q=80";
+        const imgBlue = "https://images.unsplash.com/photo-1605897472359-85e4b9482221?auto=format&fit=crop&w=500&q=80";
+        const imgFawn = "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=500&q=80";
+        const imgBrindle = "https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=500&q=80";
+
+        // Complete robust inventory array containing exactly 30 distinct Cane Corsos
+        const puppyInventory = [
             // PUPPIES ($500 TIER)
-            { id: 1, name: "Zeus", age: "8 Weeks", type: "Puppy", price: 500, coat: "Solid Black", weight: "16.4 lbs", gender: "Male", vaccines: "DHPP (First Dose)", temperament: "Confident, Alert, High Pack Drive", health: "OFA Hip Clear, Dewormed x3, Vet checked perfect", image: "https://images.unsplash.com/photo-1605897472359-85e4b9482221?auto=format&fit=crop&w=600&q=80", trained: "Basic Crate Setup", status: "Standard Lineage" },
-            { id: 2, name: "Athena", age: "9 Weeks", type: "Puppy", price: 500, coat: "Blue Brindle", weight: "18.1 lbs", gender: "Female", vaccines: "DHPP (First Dose), Bordetella", temperament: "Intelligent, Highly Composed, Eager to Please", health: "Cardiac Clear, High vitality, No cherry eye", image: "https://images.unsplash.com/photo-1537151625747-7bc870bc4b80?auto=format&fit=crop&w=600&q=80", trained: "Socialization Started", status: "Standard Lineage" },
-            { id: 4, name: "Bella", age: "8 Weeks", type: "Puppy", price: 500, coat: "Fawn", weight: "15.8 lbs", gender: "Female", vaccines: "DHPP (First Dose)", temperament: "Affectionate, Quick Learner, Playful", health: "Clear genetic health panel, Active and robust", image: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=600&q=80", trained: "Basic Leash Manners", status: "Standard Lineage" },
-            { id: 5, name: "Thor", age: "10 Weeks", type: "Puppy", price: 500, coat: "Blue", weight: "21.3 lbs", gender: "Male", vaccines: "DHPP (Doses 1 & 2)", temperament: "Dominant Profile, Fearless, High Food Drive", health: "Thick bone structure, Healthy heart and lungs", image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80", trained: "Crate Conditioned", status: "Premium Shield Candidate" },
-            { id: 7, name: "Apollo", age: "8 Weeks", type: "Puppy", price: 500, coat: "Solid Black", weight: "17.0 lbs", gender: "Male", vaccines: "DHPP (First Dose)", temperament: "Curious, Bold Nature, Attentive", health: "Perfect structural conformation, Dewormed", image: "https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?auto=format&fit=crop&w=600&q=80", trained: "Basic Boundary Rules", status: "Standard Lineage" },
-            { id: 8, name: "Hera", age: "8 Weeks", type: "Puppy", price: 500, coat: "Blue", weight: "15.2 lbs", gender: "Female", vaccines: "DHPP (First Dose)", temperament: "Gentle Giant Persona, Stable Minded", health: "Symmetric gait, Clean skin and coat", image: "https://images.unsplash.com/photo-1514984879728-be0aff75a6e8?auto=format&fit=crop&w=600&q=80", trained: "Household Desensitization", status: "Standard Lineage" },
-            { id: 10, name: "Roxy", age: "9 Weeks", type: "Puppy", price: 500, coat: "Black Brindle", weight: "17.9 lbs", gender: "Female", vaccines: "DHPP (First Dose), Bordetella", temperament: "Vocal, Highly Watchful, Protective Instinct", health: "Vet certified, No genetic skin fold issues", image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=600&q=80", trained: "Clicker Training Initiated", status: "Standard Lineage" },
-            { id: 11, name: "Odin", age: "8 Weeks", type: "Puppy", price: 500, coat: "Blue", weight: "16.8 lbs", gender: "Male", vaccines: "DHPP (First Dose)", temperament: "Courageous, Strong Drive, Grounded", health: "Strong bone density, Physical balance", image: "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=600&q=80", trained: "Standard Puppy Outline", status: "Standard Lineage" },
-            { id: 13, name: "King", age: "10 Weeks", type: "Puppy", price: 500, coat: "Fawn", weight: "22.1 lbs", gender: "Male", vaccines: "DHPP (Doses 1 & 2)", health: "Broad chest development, Clear eyes", temperament: "Stately, Deep Focus, Calm Presence", image: "https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&w=600&q=80", trained: "Leash Conditioning", status: "Standard Lineage" },
-            { id: 14, name: "Cleo", age: "8 Weeks", type: "Puppy", price: 500, coat: "Blue Brindle", weight: "14.9 lbs", gender: "Female", vaccines: "DHPP (First Dose)", health: "Socially confident, Dewormed, Vet cleared", temperament: "Assertive, Outgoing, Active Leader", image: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80", trained: "Standard Groundwork", status: "Standard Lineage" },
-            { id: 16, name: "Scylla", age: "8 Weeks", type: "Puppy", price: 500, coat: "Solid Black", weight: "15.5 lbs", gender: "Female", vaccines: "DHPP (First Dose)", temperament: "Intense Focus, High Working Aptitude", health: "Excellent energy levels, Muscle tone solid", image: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=600&q=80", trained: "Retrieve Drive Work", status: "Standard Lineage" },
-            { id: 17, name: "Ares", age: "9 Weeks", type: "Puppy", price: 500, coat: "Blue", weight: "18.5 lbs", gender: "Male", vaccines: "DHPP (First Dose), Bordetella", temperament: "Imposing Presence, Balanced Recovery Time", health: "Strong bone density, Clear heart auscultation", image: "https://images.unsplash.com/photo-1541599540903-216a46ca1df0?auto=format&fit=crop&w=600&q=80", trained: "Socialized with Domestic Pets", status: "Standard Lineage" },
-            { id: 18, name: "Nova", age: "11 Weeks", type: "Puppy", price: 500, coat: "Fawn", weight: "24.0 lbs", gender: "Female", vaccines: "DHPP (Doses 1 & 2)", health: "Fully dewormed, Clear stool check, Healthy skin", temperament: "Eager, Playful, Friendly with livestock", image: "https://images.unsplash.com/photo-1588943211346-0908a1af0b01?auto=format&fit=crop&w=600&q=80", trained: "Recall Foundations", status: "Standard Lineage" },
-            { id: 20, name: "Diana", age: "8 Weeks", type: "Puppy", price: 500, coat: "Blue", weight: "16.0 lbs", gender: "Female", vaccines: "DHPP (First Dose)", health: "Sweet natured, Fully vet screened and healthy", temperament: "Serene, Stately, Highly Attuned to Owners", image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=600&q=80", trained: "Standard Puppy Protocols", status: "Standard Lineage" },
-            { id: 21, name: "Kratos", age: "8 Weeks", type: "Puppy", price: 500, coat: "Solid Black", weight: "17.2 lbs", gender: "Male", vaccines: "DHPP (First Dose)", temperament: "High Environmental Threshold, Robust, Inquisitive", health: "OFA Spine & Hips Preliminary Clear", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80", trained: "Clicker Basics", status: "Standard Lineage" },
-            { id: 22, name: "Valkyrie", age: "9 Weeks", type: "Puppy", price: 500, coat: "Black Brindle", weight: "16.9 lbs", gender: "Female", vaccines: "DHPP (First Dose)", temperament: "Highly Focused, Steady Nerves, Tenacious", health: "DNA Clear of NCL, Excellent structure", image: "https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=600&q=80", trained: "Collar & Leash Desensitized", status: "Standard Lineage" },
-            { id: 23, name: "Remus", age: "8 Weeks", type: "Puppy", price: 500, coat: "Fawn", weight: "15.9 lbs", gender: "Male", vaccines: "DHPP (First Dose)", temperament: "Mellow Disposition, Attentive Companion Profile", health: "Vet cleared, solid bite line placement", image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=600&q=80", trained: "Scent Introduction", status: "Standard Lineage" },
-            { id: 24, name: "Scylla II", age: "10 Weeks", type: "Puppy", price: 500, coat: "Solid Black", weight: "20.1 lbs", gender: "Female", vaccines: "DHPP (Doses 1 & 2)", temperament: "Vigilant, Aloof with Strangers, Strong Instinct", health: "Top cardiovascular readings, clear skin", image: "https://images.unsplash.com/photo-1554692998-215530850231?auto=format&fit=crop&w=600&q=80", trained: "No-Bite Inhibitions Clear", status: "Standard Lineage" },
+            { id: 1, name: "Zeus", type: "Puppy", price: 500, coat: "Solid Black", age: "8 Weeks", weight: "16.4 lbs", description: "Impeccable structural bone lines, completely glossy dark tone coat, alert guardian drive layout.", image: imgBlack },
+            { id: 2, name: "Athena", type: "Puppy", price: 500, coat: "Solid Blue / Grey", age: "8 Weeks", weight: "15.8 lbs", description: "Striking rare smoky coat layout with piercing light contrast eyes, highly analytical focus template.", image: imgBlue },
+            { id: 3, name: "Bella", type: "Puppy", price: 500, coat: "Fawn with Black Mask", age: "8 Weeks", weight: "14.2 lbs", description: "Beautiful athletic frame with clean classic fawn body shading and deep carbon dark face mask coloration.", image: imgFawn },
+            { id: 4, name: "Thor", type: "Puppy", price: 500, coat: "Traditional Brindle", age: "9 Weeks", weight: "18.1 lbs", description: "Vibrant high-contrast tiger striping across shoulders, exceptional chest development, natural guard stance.", image: imgBrindle },
+            { id: 5, name: "Apollo", type: "Puppy", price: 500, coat: "Solid Black", age: "8 Weeks", weight: "17.0 lbs", description: "Deep dark solid lines, broad facial profile development, high motivation drive, deeply healthy and playful.", image: imgBlack },
+            { id: 6, name: "Hera", type: "Puppy", price: 500, coat: "Solid Blue / Grey", age: "8 Weeks", weight: "15.1 lbs", description: "Sleek velvet grey texture coat, highly graceful movement lines, sweet even-keeled tracking disposition.", image: imgBlue },
+            { id: 7, name: "Roxy", type: "Puppy", price: 500, coat: "Fawn with Black Mask", age: "8 Weeks", weight: "14.6 lbs", description: "Extremely sharp visual look with a well-defined dark muzzle mask layout, curious, robust and vibrant.", image: imgFawn },
+            { id: 8, name: "Odin", type: "Puppy", price: 500, coat: "Traditional Brindle", age: "9 Weeks", weight: "19.3 lbs", description: "Heavy dark brindle patterning, thick bone density, fearless response threshold profile, perfect health clearance.", image: imgBrindle },
+            { id: 9, name: "King", type: "Puppy", price: 500, coat: "Solid Black", age: "8 Weeks", weight: "16.8 lbs", description: "Stately behavior matrix layout, dark features, incredibly responsive to basic spatial commands.", image: imgBlack },
+            { id: 10, name: "Cleo", type: "Puppy", price: 500, coat: "Solid Blue / Grey", age: "8 Weeks", weight: "15.4 lbs", description: "Exquisite slate grey appearance, highly affectionate pack layout, clean ears and bright active eyes.", image: imgBlue },
+            { id: 11, name: "Scylla", type: "Puppy", price: 500, coat: "Fawn with Black Mask", age: "8 Weeks", weight: "14.0 lbs", description: "Gorgeous golden fawn coloring offset with a classic dense dark mask layer, balanced social drive configuration.", image: imgFawn },
+            { id: 12, name: "Ares", type: "Puppy", price: 500, coat: "Traditional Brindle", age: "8 Weeks", weight: "16.9 lbs", description: "Classic balanced brindle swirled coat, highly active tracking instincts, solid muscle confirmation.", image: imgBrindle },
+            { id: 13, name: "Nova", type: "Puppy", price: 500, coat: "Solid Black", age: "9 Weeks", weight: "17.5 lbs", description: "Jet black coat layer profile, high environmental alertness metrics, premium physical health marks.", image: imgBlack },
+            { id: 14, name: "Diana", type: "Puppy", price: 500, coat: "Solid Blue / Grey", age: "8 Weeks", weight: "16.0 lbs", description: "Striking blue coat layout, deep chest, calm tracking metrics, beautifully stable and composed companion.", image: imgBlue },
+            { id: 15, name: "Kratos", type: "Puppy", price: 500, coat: "Fawn with Black Mask", age: "8 Weeks", weight: "15.2 lbs", description: "Strong alpha posture, vibrant tan coat texture with a distinct dark muzzle shield, high food drive parameters.", image: imgFawn },
+            { id: 16, name: "Valkyrie", type: "Puppy", price: 500, coat: "Traditional Brindle", age: "8 Weeks", weight: "14.8 lbs", description: "Elegant tiger brindle shading layout, fast learning response loops, fully vet certified clear and healthy.", image: imgBrindle },
+            { id: 17, name: "Remus", type: "Puppy", price: 500, coat: "Solid Black", age: "8 Weeks", weight: "16.1 lbs", description: "All black composition line settings, powerful stance, highly protective pack drive nature.", image: imgBlack },
+            { id: 18, name: "Juno", type: "Puppy", price: 500, coat: "Solid Blue / Grey", age: "9 Weeks", weight: "18.0 lbs", description: "Beautiful grey tone layout, highly inquisitive focus metrics, strong bones and perfect teeth alignment.", image: imgBlue },
 
             // PRE-TRAINED TEENS ($1000 TIER)
-            { id: 3, name: "Tito", age: "14 Months", type: "Pre-Trained Teen", price: 1000, coat: "Fawn", weight: "112.5 lbs", gender: "Male", vaccines: "DHPP (Complete), Rabies, Bordetella", temperament: "Protective, Guardian Focus, Calm Demeanor", health: "OFA Excellent Hips, Perfect bite/jaw alignment", image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80", trained: "Advanced Off-Leash, Housebroken, Bite Work Foundation", status: "Elite Obedience Certified" },
-            { id: 6, name: "Luna", age: "16 Months", type: "Pre-Trained Teen", price: 1000, coat: "Black Brindle", weight: "118.0 lbs", gender: "Female", vaccines: "DHPP (Complete), Rabies, Bordetella", temperament: "Discerning Guard, Loyal, Impeccable Focus", health: "OFA Elbows Normal, Highly athletic stamina", image: "https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=600&q=80", trained: "Full House Training, Advanced Public Obedience", status: "Housebroken & Protection Foundation" },
-            { id: 9, name: "Maximus", age: "15 Months", type: "Pre-Trained Teen", price: 1000, coat: "Fawn", weight: "124.6 lbs", gender: "Male", vaccines: "DHPP (Complete), Rabies, Bordetella", temperament: "Balanced Drive, Excellent Discernment, Reliable", health: "OFA Hips Good, Excellent temperament check", image: "https://images.unsplash.com/photo-1541364983171-a8ba01d95cfc?auto=format&fit=crop&w=600&q=80", trained: "Elite Perimeter Watch, Perfect Recall under distraction", status: "Advanced Off-Leash Certified" },
-            { id: 12, name: "Freya", age: "13 Months", type: "Pre-Trained Teen", price: 1000, coat: "Solid Black", weight: "102.3 lbs", gender: "Female", vaccines: "DHPP (Complete), Rabies, Bordetella", temperament: "Dynamic Drive, Extremely Loyal, Highly Alert", health: "OFA Good, Perfect clear ears, Highly responsive", image: "https://images.unsplash.com/photo-1586671267731-ee23a534033d?auto=format&fit=crop&w=600&q=80", trained: "Personal Protection Tier 1, Flawless Inside Mechanics", status: "Home Defense K9 Track" },
-            { id: 15, name: "Caesar", age: "18 Months", type: "Pre-Trained Teen", price: 1000, coat: "Fawn", weight: "131.4 lbs", gender: "Male", vaccines: "DHPP (Complete), Rabies, Bordetella", temperament: "Alpha Composure, Outstanding Property Sentry", health: "Top tier pedigree, OFA Excellent, Work certified", image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=600&q=80", trained: "Full K9 Utility Training, Safe Around Children", status: "Elite Family Guardian Track" },
-            { id: 19, name: "Brutus", age: "14 Months", type: "Pre-Trained Teen", price: 1000, coat: "Black Brindle", weight: "116.8 lbs", gender: "Male", vaccines: "DHPP (Complete), Rabies, Bordetella", temperament: "Highly Discerning Threat Assessment, Loyal", health: "OFA Joints Certified, Top protective instinct", image: "https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?auto=format&fit=crop&w=600&q=80", trained: "Urban Scenario Trained, Advanced Off-Leash Safety", status: "Advanced Urban Guard" },
-            { id: 25, name: "Goliath", age: "15 Months", type: "Pre-Trained Teen", price: 1000, coat: "Solid Black", weight: "128.3 lbs", gender: "Male", vaccines: "DHPP (Complete), Rabies, Lepto", temperament: "Stoic, Immense Protective Frame, Naturally Quieter", health: "OFA Cardiac & Hips Excellent Certified", image: "https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?auto=format&fit=crop&w=600&q=80", trained: "Advanced Structural Sentinel Setup", status: "Executive Property Shield" },
-            { id: 26, name: "Xena", age: "12 Months", type: "Pre-Trained Teen", price: 1000, coat: "Blue", weight: "98.4 lbs", gender: "Female", vaccines: "DHPP (Complete), Rabies, Bordetella", temperament: "High Speed Response, Elite Tracking Aptitude", health: "Elbows/Eyes Certified Clear internationally", image: "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&w=600&q=80", trained: "Service Protocol Foundation & Off-Leash Stable", status: "Companion Level Elite" },
-            { id: 27, name: "Gunnar", age: "16 Months", type: "Pre-Trained Teen", price: 1000, coat: "Chestnut Brindle", weight: "122.0 lbs", gender: "Male", vaccines: "DHPP (Complete), Rabies", temperament: "High Pack Loyalty, Socialized but Defensive of Boundaries", health: "Perfect Orthopedic Scores", image: "https://images.unsplash.com/photo-1444212477490-ca407925329e?auto=format&fit=crop&w=600&q=80", trained: "Vehicle Protection Pack Installed", status: "Estate Security Ready" },
-            { id: 28, name: "Sita", age: "13 Months", type: "Pre-Trained Teen", price: 1000, coat: "Fawn", weight: "101.2 lbs", gender: "Female", vaccines: "DHPP (Complete), Rabies, Bordetella", temperament: "Gentle with Family, Ruthless on Command Warning Signals", health: "Genetic Panel Verified 100% Negative", image: "https://images.unsplash.com/photo-1548685913-fe65785e3a12?auto=format&fit=crop&w=600&q=80", trained: "Advanced Target Neutralization & House Rules", status: "Family Shield Option" },
-            { id: 29, name: "Titan", age: "17 Months", type: "Pre-Trained Teen", price: 1000, coat: "Solid Black", weight: "135.2 lbs", gender: "Male", vaccines: "DHPP (Complete), Rabies, Lepto", temperament: "Massive Working Layout, High Threshold Guarding", health: "Vet Checked structural masterpiece", image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80", trained: "Complete Hand Signal Control Layout", status: "Elite Working Mastiff" },
-            { id: 30, name: "Juno", age: "14 Months", type: "Pre-Trained Teen", price: 1000, coat: "Blue Brindle", weight: "106.7 lbs", gender: "Female", vaccines: "DHPP (Complete), Rabies", temperament: "Highly Discerning Eye, Exceptional Handler Focus", health: "Perfect Eye/Ear certifications checked", image: "https://images.unsplash.com/photo-1513360309081-36f5e878f2d0?auto=format&fit=crop&w=600&q=80", trained: "Public Space Spatial Control & Calm Sit Stay", status: "Elite Public Guardian" }
+            { id: 19, name: "Tito", type: "Pre-Trained Teen", price: 1000, coat: "Traditional Brindle", age: "14 Months", weight: "112.5 lbs", description: "Advanced obedience metrics, powerful brindle pattern, completely protective territory sentinel.", image: imgBrindle },
+            { id: 20, name: "Maximus", type: "Pre-Trained Teen", price: 1000, coat: "Solid Black", age: "15 Months", weight: "124.6 lbs", description: "Flawless off-leash tracking routines, striking giant black profile, deep alert vocal warning triggers.", image: imgBlack },
+            { id: 21, name: "Freya", type: "Pre-Trained Teen", price: 1000, coat: "Solid Blue / Grey", age: "13 Months", weight: "102.3 lbs", description: "Elite level structural home companion track, calm grey layout, high social discernment capabilities.", image: imgBlue },
+            { id: 22, name: "Caesar", type: "Pre-Trained Teen", price: 1000, coat: "Fawn with Black Mask", age: "18 Months", weight: "131.4 lbs", description: "Massive fawn build format with solid black mask, stable perimeter protection logic fully installed.", image: imgFawn },
+            { id: 23, name: "Goliath", type: "Pre-Trained Teen", price: 1000, coat: "Solid Black", age: "15 Months", weight: "128.3 lbs", description: "Imposing estate security layout, jet black dense coat, perfectly gentle with inner family circle.", image: imgBlack },
+            { id: 24, name: "Xena", type: "Pre-Trained Teen", price: 1000, coat: "Solid Blue / Grey", age: "12 Months", weight: "98.4 lbs", description: "Athletic multi-speed gray sentinel track, high threat management discernment, clean veterinary files.", image: imgBlue },
+            { id: 25, name: "Gunnar", type: "Pre-Trained Teen", price: 1000, coat: "Traditional Brindle", age: "16 Months", weight: "122.0 lbs", description: "High-level boundary protection certified, gorgeous dark brindle lines, perfect orthopedic scores.", image: imgBrindle },
+            { id: 26, name: "Sita", type: "Pre-Trained Teen", price: 1000, coat: "Fawn with Black Mask", age: "13 Months", weight: "101.2 lbs", description: "Beautiful fawn coat structure, highly alert handler response loops, excellent active warning signals.", image: imgFawn },
+            { id: 27, name: "Titan", type: "Pre-Trained Teen", price: 1000, coat: "Solid Black", age: "17 Months", weight: "135.2 lbs", description: "Premium muscular mass working frame, fully black layout, trained under hand signal commands perfectly.", image: imgBlack },
+            { id: 28, name: "Romulus", type: "Pre-Trained Teen", price: 1000, coat: "Solid Blue / Grey", age: "14 Months", weight: "115.9 lbs", description: "Impeccable steel gray conformation line, smooth movement mechanics, elite property line safety guardian.", image: imgBlue },
+            { id: 29, name: "Scylla II", type: "Pre-Trained Teen", price: 1000, coat: "Solid Black", age: "16 Months", weight: "110.4 lbs", description: "High drive sentinel layout, deep dark black coat, absolute housebroken manners and urban stable.", image: imgBlack },
+            { id: 30, name: "Rex", type: "Pre-Trained Teen", price: 1000, coat: "Traditional Brindle", age: "15 Months", weight: "126.8 lbs", description: "Heavy dark tiger brindle pattern, commanding presence, perfect target recall under extreme distraction.", image: imgBrindle }
         ];
 
-        let currentCategory = 'ALL';
-        let selectedDogId = null;
-        let isDarkMode = true;
+        let activeCategoryFilter = 'ALL';
+        let activeTargetDogId = null;
+        const PAYPAL_ENDPOINT_BASE = "https://www.paypal.me/Adorable0cane0corso";
+        const FACEBOOK_LINK_ENDPOINT = "https://www.facebook.com/share/18hkb5cGjp/?mibextid=wwXIfr";
 
-        const PAYPAL_BASE = "https://www.paypal.me/Adorable0cane0corso";
-        const FACEBOOK_URL = "https://www.facebook.com/share/18hkb5cGjp/?mibextid=wwXIfr";
+        // Single-Page-Application Router Component Controller
+        function navigateTo(viewId) {
+            document.querySelectorAll('.page-view').forEach(element => element.classList.add('hidden'));
+            document.getElementById(`page-${viewId}`).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-        function renderGrid() {
-            const grid = document.getElementById('dogs-grid');
-            const searchQuery = document.getElementById('search-input').value.toLowerCase();
+        // Adjust Category Filter Toggles
+        function setCategoryFilter(category) {
+            activeCategoryFilter = category;
             
-            // Gather values from advanced filter dropdowns
-            const selectedCoat = document.getElementById('filter-coat').value;
-            const selectedGender = document.getElementById('filter-gender').value;
-            const selectedPrice = document.getElementById('filter-price').value;
-
-            grid.innerHTML = '';
-
-            const filteredItems = dogsInventory.filter(dog => {
-                const matchesCat = currentCategory === 'ALL' || dog.type === currentCategory;
-                
-                const matchesSearch = dog.name.toLowerCase().includes(searchQuery) || 
-                                      dog.coat.toLowerCase().includes(searchQuery) || 
-                                      dog.temperament.toLowerCase().includes(searchQuery) ||
-                                      dog.status.toLowerCase().includes(searchQuery);
-
-                const matchesCoat = selectedCoat === 'ALL' || dog.coat.includes(selectedCoat);
-                const matchesGender = selectedGender === 'ALL' || dog.gender === selectedGender;
-                const matchesPrice = selectedPrice === 'ALL' || dog.price <= parseInt(selectedPrice);
-
-                return matchesCat && matchesSearch && matchesCoat && matchesGender && matchesPrice;
+            // Fix button visual state states
+            document.querySelectorAll('.cat-toggle-btn').forEach(btn => {
+                btn.className = "cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-slate-900 border border-slate-800 text-slate-400";
             });
-
-            if (filteredItems.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full py-12 text-center border border-dashed rounded-2xl ${isDarkMode ? 'border-slate-800 bg-slate-900/20 text-slate-500' : 'border-slate-200 bg-slate-50 text-slate-400'}">
-                        <p class="text-xs font-bold">No Registries match your exact filter configuration.</p>
-                        <button onclick="resetAllFilters()" class="mt-2 text-xs text-amber-500 font-bold underline hover:text-amber-600">Clear All Filters</button>
-                    </div>
-                `;
-                return;
+            
+            const activeBtn = document.getElementById(`cat-${category}`);
+            if (activeBtn) {
+                activeBtn.className = "cat-toggle-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-amber-500 text-slate-950 shadow-lg";
             }
+            
+            renderStoreFrontGrid();
+        }
 
-            filteredItems.forEach(dog => {
-                const isSelected = selectedDogId === dog.id;
-                const borderClass = isSelected 
-                    ? 'border-amber-500 ring-2 ring-amber-500/10 bg-slate-900' 
-                    : (isDarkMode ? 'bg-slate-900/60 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm hover:shadow-md');
-                
-                const statusBadge = dog.status !== 'Standard Lineage' 
-                    ? `<div class="mt-1 bg-amber-500/10 text-amber-400 border border-amber-500/20 rounded px-2 py-0.5 inline-block text-[9px] font-extrabold uppercase tracking-wide">${dog.status}</div>` 
-                    : '';
+        // Generate and Inject Cards Into Main Catalog Grid (Page 1)
+        function renderStoreFrontGrid() {
+            const container = document.getElementById('puppy-catalog-target');
+            container.innerHTML = '';
 
-                grid.innerHTML += `
-                    <div class="rounded-2xl border overflow-hidden transition-all flex flex-col justify-between ${borderClass}">
-                        <div class="relative aspect-[4/3] bg-slate-800 overflow-hidden">
-                            <img src="${dog.image}" alt="${dog.name}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
-                            <span class="absolute top-3 right-3 bg-slate-950/90 backdrop-blur-md text-amber-500 font-black px-3 py-1 rounded-lg text-sm border border-slate-800">$${dog.price}</span>
+            const filteredList = puppyInventory.filter(dog => {
+                return activeCategoryFilter === 'ALL' || dog.type === activeCategoryFilter;
+            });
+
+            filteredList.forEach(dog => {
+                container.innerHTML += `
+                    <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-slate-700 transition-all flex flex-col justify-between group shadow-xl">
+                        <div class="relative aspect-square bg-slate-950 overflow-hidden">
+                            <img src="${dog.image}" alt="${dog.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent"></div>
+                            <span class="absolute top-3 right-3 bg-slate-950/90 backdrop-blur-md text-amber-500 text-xs font-black font-mono px-3 py-1.5 rounded-xl border border-slate-800 shadow-xl">$${dog.price} USD</span>
+                            
                             <div class="absolute bottom-3 left-3 right-3">
-                                <h4 class="text-base font-black text-white flex items-center gap-1.5">
-                                    ${dog.name} <span class="text-[9px] px-2 py-0.5 rounded-full font-extrabold bg-slate-950 text-slate-300 uppercase border border-slate-800">${dog.gender}</span>
-                                </h4>
-                                <p class="text-[10px] text-slate-300 font-medium italic mt-0.5">${dog.coat} • ${dog.age}</p>
+                                <h3 class="text-lg font-black text-white uppercase tracking-wide flex items-center gap-2">
+                                    ${dog.name}
+                                    <span class="text-[9px] font-extrabold bg-amber-500 text-slate-950 px-1.5 py-0.5 rounded-full uppercase tracking-widest font-sans">${dog.type === 'Puppy' ? 'PUP' : 'TEEN'}</span>
+                                </h3>
+                                <p class="text-[11px] font-bold text-amber-400 italic mt-0.5">${dog.coat}</p>
                             </div>
                         </div>
-                        <div class="p-4 space-y-3 flex-grow flex flex-col justify-between">
-                            <div class="space-y-2 text-xs">
-                                <div class="${isDarkMode ? 'bg-slate-950/40 border-slate-800/40' : 'bg-slate-50 border-slate-200'} border p-2.5 rounded-xl font-medium space-y-1">
-                                    <p class="text-emerald-400 font-bold text-[11px]">✓ ${dog.vaccines}</p>
-                                    <p class="text-slate-400 text-[11px] line-clamp-1"><span class="text-slate-500">Record:</span> ${dog.health}</p>
+
+                        <div class="p-4 space-y-4 flex-grow flex flex-col justify-between">
+                            <div class="space-y-1.5 text-xs">
+                                <div class="bg-slate-950/50 border border-slate-800 px-3 py-2 rounded-xl text-slate-400 font-mono flex justify-between text-[10px]">
+                                    <span>Age: <strong>${dog.age}</strong></span>
+                                    <span>Weight: <strong>${dog.weight}</strong></span>
                                 </div>
-                                ${statusBadge}
-                                <p class="text-slate-400 italic line-clamp-2 leading-relaxed">"${dog.temperament}"</p>
+                                <p class="text-slate-400 leading-relaxed text-[11px] line-clamp-3">${dog.description}</p>
                             </div>
-                            <div class="grid grid-cols-2 gap-2 pt-2">
-                                <button onclick="viewProfile(${dog.id})" class="py-2 px-3 rounded-xl font-bold uppercase tracking-wider text-[10px] border flex items-center justify-center gap-1 transition-all ${isDarkMode ? 'border-slate-800 bg-slate-950 text-slate-300 hover:bg-slate-900' : 'border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100'}">Profile Dossier</button>
-                                <button onclick="selectDog(${dog.id})" class="py-2 px-3 rounded-xl font-black uppercase tracking-wider text-[10px] transition-all ${isSelected ? 'bg-amber-500 text-slate-950' : 'bg-slate-800 text-slate-200 hover:bg-slate-700'}">${isSelected ? 'Selected' : 'Reserve'}</button>
-                            </div>
+
+                            <button onclick="triggerCheckoutFlow(${dog.id})" class="w-full bg-slate-800 hover:bg-amber-500 text-white hover:text-slate-950 font-black py-2.5 px-4 rounded-xl transition-all uppercase tracking-wider text-[10px]">
+                                Buy Now (PayPal Only)
+                            </button>
                         </div>
                     </div>
                 `;
             });
         }
 
-        function setCategoryFilter(cat) {
-            currentCategory = cat;
-            document.querySelectorAll('.cat-btn').forEach(btn => {
-                btn.className = `cat-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${isDarkMode ? 'bg-slate-950 border border-slate-800 text-slate-400' : 'bg-slate-50 border border-slate-200 text-slate-600'}`;
-            });
-            const activeId = cat === 'ALL' ? 'btn-cat-ALL' : (cat === 'Puppy' ? 'btn-cat-Puppy' : 'btn-cat-Teen');
-            document.getElementById(activeId).className = "cat-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap bg-amber-500 text-slate-950 shadow-md";
-            renderGrid();
+        // Set state targets and switch windows automatically
+        function triggerCheckoutFlow(dogId) {
+            activeTargetDogId = dogId;
+            navigateTo('checkout');
+            calculateOrderTotals();
         }
 
-        function resetAllFilters() {
-            document.getElementById('search-input').value = '';
-            document.getElementById('filter-coat').value = 'ALL';
-            document.getElementById('filter-gender').value = 'ALL';
-            document.getElementById('filter-price').value = 'ALL';
-            setCategoryFilter('ALL');
-        }
-
-        function selectDog(id) {
-            selectedDogId = id;
-            renderGrid();
-            renderCheckout();
-        }
-
-        function renderCheckout() {
-            const workspace = document.getElementById('checkout-workspace');
-            const dog = dogsInventory.find(d => d.id === selectedDogId);
+        // Core Mathematical Processing Engine for Pricing matrix configurations
+        function calculateOrderTotals() {
+            const dog = puppyInventory.find(item => item.id === activeTargetDogId);
             if (!dog) return;
 
-            workspace.innerHTML = `
-                <div class="space-y-4 text-xs">
-                    <div class="rounded-xl p-3 border space-y-2 ${isDarkMode ? 'bg-slate-950 border-slate-800' : 'bg-slate-50 border-slate-200'}">
-                        <div class="flex justify-between font-bold">
-                            <span class="text-slate-400">Selected Registry:</span>
-                            <span class="${isDarkMode ? 'text-white' : 'text-slate-900'}">${dog.name} (${dog.type})</span>
-                        </div>
-                        <div class="flex justify-between text-[11px]">
-                            <span class="text-slate-400">Weight Metrics:</span>
-                            <span class="font-mono text-slate-400">${dog.weight}</span>
-                        </div>
-                        <div class="flex justify-between items-center pt-2 border-t ${isDarkMode ? 'border-slate-800' : 'border-slate-200'}">
-                            <span class="font-bold text-slate-400">Adoption Price:</span>
-                            <span class="text-xl font-black text-amber-500">$${dog.price} USD</span>
-                        </div>
+            // Form Dom Queries
+            const name = document.getElementById('cust-name').value.trim();
+            const street = document.getElementById('cust-address').value.trim();
+            const city = document.getElementById('cust-city').value.trim();
+            const state = document.getElementById('cust-state').value.trim();
+            const zip = document.getElementById('cust-zip').value.trim();
+            const isTransport = document.getElementById('mode-transport').checked;
+
+            // Enforce logistics constraints
+            const transportCost = isTransport ? 25 : 0;
+            const fullTotalSum = dog.price + transportCost;
+
+            // Validate all standard elements fields
+            const isFormComplete = name && street && city && state && zip;
+
+            // Target Sidebar template output view
+            const receiptTarget = document.getElementById('checkout-receipt-card');
+
+            let interactiveActionBlock = '';
+
+            if (isFormComplete) {
+                // Form passes local requirements checks -> Render absolute PayPal route gateways links elements
+                interactiveActionBlock = `
+                    <div class="space-y-3 pt-2">
+                        <a href="${PAYPAL_ENDPOINT_BASE}/${fullTotalSum}" target="_blank" rel="noopener noreferrer" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-3 px-4 rounded-xl transition-all text-center block text-xs uppercase tracking-widest shadow-xl shadow-blue-600/10">
+                            Execute Secure PayPal Payment ($${fullTotalSum}) ↗
+                        </a>
+                        <a href="${FACEBOOK_LINK_ENDPOINT}" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold py-2.5 px-4 rounded-xl transition-all text-center block text-[10px] uppercase tracking-wider border border-slate-700">
+                            Forward Screenshot to Facebook Chat ↗
+                        </a>
+                        <p class="text-[10px] text-slate-500 text-center leading-normal">Clicking payment locks your absolute destination parameters setup to exactly $${fullTotalSum} USD via secure business links.</p>
                     </div>
-                    <div class="space-y-3">
-                        <p class="font-bold text-slate-400 uppercase text-[10px] tracking-wider">Processing Steps Guide</p>
-                        <div class="border-l border-slate-800 pl-3 space-y-4 text-[11px] text-slate-400">
-                            <div>
-                                <p class="font-bold ${isDarkMode ? 'text-slate-200' : 'text-slate-800'}">1. Route via PayPal link Gateway</p>
-                                <p class="mt-0.5">Click the link below to load your custom destination gateway to process exactly $${dog.price}:</p>
-                                <a href="${PAYPAL_BASE}/${dog.price}" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 font-mono text-[11px] text-amber-400 font-bold hover:underline bg-amber-500/5 border border-amber-500/20 px-2 py-1.5 rounded w-full justify-center transition-all hover:bg-amber-500/10">Launch PayPal Link ↗</a>
-                            </div>
-                            <div>
-                                <p class="font-bold ${isDarkMode ? 'text-slate-200' : 'text-slate-800'}">2. Capture Screenshot</p>
-                                <p class="mt-0.5">Take a snapshot or receipt confirmation window displaying payment confirmation details.</p>
-                            </div>
-                            <div>
-                                <p class="font-bold ${isDarkMode ? 'text-slate-200' : 'text-slate-800'}">3. Finalize on Facebook Account</p>
-                                <p class="mt-0.5">Click the dynamic confirmation portal to forward your verification parameters straight to our team chat log.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="${FACEBOOK_URL}" target="_blank" rel="noopener noreferrer" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-center text-xs uppercase tracking-widest shadow-lg shadow-blue-600/10">
-                        Forward Receipt to Facebook ↗
-                    </a>
-                </div>
-            `;
-        }
-
-        function viewProfile(id) {
-            const dog = dogsInventory.find(d => d.id === id);
-            const target = document.getElementById('modal-content-target');
-            const textHeadingClass = isDarkMode ? 'text-white' : 'text-slate-900';
-            const panelBg = isDarkMode ? 'bg-slate-950/60 border-slate-800' : 'bg-slate-50 border-slate-200';
-
-            target.innerHTML = `
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mt-4">
-                    <div class="relative aspect-square rounded-2xl overflow-hidden bg-slate-800">
-                        <img src="${dog.image}" alt="${dog.name}" class="w-full h-full object-cover">
-                        <span class="absolute top-4 right-4 bg-amber-500 text-slate-950 px-4 py-1.5 rounded-full text-lg font-black shadow-lg">$${dog.price}</span>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="border-b ${isDarkMode ? 'border-slate-800' : 'border-slate-200'} pb-3">
-                            <h3 class="text-3xl font-black ${textHeadingClass}">${dog.name}</h3>
-                            <p class="text-xs font-mono text-slate-400 mt-0.5">ID Package Reference: #CORSO-00${dog.id}</p>
-                        </div>
-                        <div class="grid grid-cols-2 gap-3 text-xs">
-                            <div class="p-2.5 rounded-xl border ${panelBg}"><span class="text-slate-400 block text-[10px] uppercase font-bold">Age Group</span><span class="font-bold ${textHeadingClass}">${dog.age}</span></div>
-                            <div class="p-2.5 rounded-xl border ${panelBg}"><span class="text-slate-400 block text-[10px] uppercase font-bold">Current Weight</span><span class="font-bold ${textHeadingClass}">${dog.weight}</span></div>
-                            <div class="p-2.5 rounded-xl border ${panelBg}"><span class="text-slate-400 block text-[10px] uppercase font-bold">Gender</span><span class="font-bold ${textHeadingClass}">${dog.gender}</span></div>
-                            <div class="p-2.5 rounded-xl border ${panelBg}"><span class="text-slate-400 block text-[10px] uppercase font-bold">Coat Classification</span><span class="font-bold ${textHeadingClass}">${dog.coat}</span></div>
-                        </div>
-                        <div class="bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-xl text-emerald-400 text-xs">
-                            <p class="font-bold uppercase tracking-wider">Medical Clearance Logs</p>
-                            <p class="mt-0.5">${dog.vaccines}</p>
-                        </div>
-                        <div class="p-3 rounded-xl border ${panelBg} text-xs space-y-2 text-slate-400">
-                            <p><strong class="text-amber-500">Health Diagnostics:</strong> ${dog.health}</p>
-                            <p><strong class="text-amber-500">Temperament Core:</strong> ${dog.temperament}</p>
-                            <p><strong class="text-amber-500">Completed Working Curriculums:</strong> ${dog.trained}</p>
-                        </div>
-                        <button onclick="selectDog(${dog.id}); closeProfile();" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-3 px-4 rounded-xl text-xs uppercase tracking-wider transition-all shadow-lg shadow-amber-500/10">
-                            Select & Reserve ${dog.name}
-                        </button>
-                    </div>
-                </div>
-            `;
-            document.getElementById('profile-modal').style.display = 'flex';
-        }
-
-        function closeProfile() {
-            document.getElementById('profile-modal').style.display = 'none';
-        }
-
-        function handleForm(e) {
-            e.preventDefault();
-            document.getElementById('form-container').innerHTML = `
-                <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-center space-y-1">
-                    <h4 class="text-xs font-bold text-emerald-400 uppercase">Application Registered</h4>
-                    <p class="text-[10px] text-slate-400 leading-relaxed">Your home environment screening data has been parsed locally. Direct message our team via Facebook to skip the line queue.</p>
-                </div>
-            `;
-        }
-
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            const body = document.body;
-            const navbar = document.getElementById('navbar');
-            const filterPanel = document.getElementById('filter-panel');
-            const searchInput = document.getElementById('search-input');
-            const sidebarCards = document.querySelectorAll('.id-sidebar-card');
-            const inputs = document.querySelectorAll('.id-input');
-            const themeBtn = document.querySelector('.id-theme-btn');
-            const modalBody = document.getElementById('profile-modal').firstElementChild;
-            const filterDivider = document.querySelector('.id-filter-divider');
-
-            if (isDarkMode) {
-                body.className = "bg-slate-950 text-slate-100 font-sans antialiased animate-fadeIn";
-                navbar.className = "border-b sticky top-0 z-50 backdrop-blur-md border-slate-800 bg-slate-950/80";
-                filterPanel.className = "p-5 rounded-2xl border flex flex-col gap-4 bg-slate-900 border-slate-800";
-                filterDivider.className = "grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-slate-800/60 id-filter-divider";
-                searchInput.className = "w-full pl-9 pr-4 py-2 text-xs rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500/40 transition-all bg-slate-950 border-slate-800 text-white placeholder-slate-600 id-input";
-                sidebarCards.forEach(c => c.className = "p-6 rounded-2xl border bg-slate-900 border-slate-800 id-sidebar-card");
-                inputs.forEach(i => i.className = "w-full px-3 py-2 text-xs border rounded-xl focus:outline-none bg-slate-950 border-slate-800 text-white id-input");
-                themeBtn.className = "p-2 rounded-xl border transition-all bg-slate-900 border-slate-800 text-amber-400 id-theme-btn";
-                modalBody.className = "max-w-4xl w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 relative max-h-[90vh] overflow-y-auto id-modal-body";
-                document.getElementById('sun-icon').setAttribute('stroke', '#d97706');
-                document.querySelector('.id-main-heading').classList.add('text-white');
-                document.querySelectorAll('.id-sidebar-title').forEach(t => t.classList.add('text-white'));
+                `;
             } else {
-                body.className = "bg-slate-50 text-slate-800 font-sans antialiased animate-fadeIn";
-                navbar.className = "border-b sticky top-0 z-50 backdrop-blur-md border-slate-200 bg-white/80";
-                filterPanel.className = "p-5 rounded-2xl border flex flex-col gap-4 bg-white border-slate-200 shadow-md";
-                filterDivider.className = "grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-slate-200 id-filter-divider";
-                searchInput.className = "w-full pl-9 pr-4 py-2 text-xs rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-500/40 transition-all bg-slate-50 border-slate-200 text-slate-800 placeholder-slate-400 id-input";
-                sidebarCards.forEach(c => c.className = "p-6 rounded-2xl border bg-white border-slate-200 id-sidebar-card shadow-sm");
-                inputs.forEach(i => i.className = "w-full px-3 py-2 text-xs border rounded-xl focus:outline-none bg-slate-50 border-slate-200 text-slate-700 id-input");
-                themeBtn.className = "p-2 rounded-xl border transition-all bg-white border-slate-200 text-slate-600 id-theme-btn";
-                modalBody.className = "max-w-4xl w-full bg-white border border-slate-200 rounded-3xl p-6 md:p-8 relative max-h-[90vh] overflow-y-auto id-modal-body shadow-2xl text-slate-800";
-                document.getElementById('sun-icon').setAttribute('stroke', '#475569');
-                document.querySelector('.id-main-heading').classList.remove('text-white');
-                document.querySelectorAll('.id-sidebar-title').forEach(t => t.classList.remove('text-white'));
+                // Missing address fields -> Enforce UI blocking message element parameters
+                interactiveActionBlock = `
+                    <div class="bg-slate-950/60 border border-dashed border-slate-800 p-4 rounded-2xl text-center text-[11px] text-slate-500 font-medium leading-relaxed">
+                        ⚠️ <span class="text-amber-500 font-bold uppercase tracking-wide text-[10px] block mt-0.5">Address Required</span>
+                        Please populate your complete USA address coordinates inside the logistics form grid on the left to activate your authenticated PayPal processing buttons.
+                    </div>
+                `;
             }
-            renderGrid();
-            renderCheckout();
+
+            // Write HTML Template matrix updates down into DOM layout node
+            receiptTarget.innerHTML = `
+                <div class="border-b border-slate-800 pb-3">
+                    <h4 class="text-xs font-black uppercase text-slate-400 tracking-wider">Review Purchase Dossier</h4>
+                </div>
+
+                <!-- Dog Specification Target -->
+                <div class="flex gap-3 items-center bg-slate-950/60 p-3 rounded-2xl border border-slate-800/60">
+                    <img src="${dog.image}" class="w-12 h-12 object-cover rounded-xl border border-slate-800">
+                    <div class="text-xs">
+                        <p class="font-black text-white uppercase">${dog.name} — ${dog.type}</p>
+                        <p class="text-[10px] text-slate-500 font-mono mt-0.5">${dog.coat} • ${dog.age}</p>
+                    </div>
+                </div>
+
+                <!-- Accounting Breakdown Layout Matrix -->
+                <div class="text-xs font-medium space-y-2 pt-1">
+                    <div class="flex justify-between text-slate-400">
+                        <span>Base Adoption Tier Fee:</span>
+                        <span class="font-mono text-white font-bold">$${dog.price}.00</span>
+                    </div>
+                    <div class="flex justify-between text-slate-400">
+                        <span>Fulfillment Routing (${isTransport ? 'Ground Transport' : 'NJ Kennel Pickup'}):</span>
+                        <span class="font-mono text-white font-bold">${isTransport ? '+$25.00' : 'FREE'}</span>
+                    </div>
+                    <div class="flex justify-between text-slate-400">
+                        <span>Regional Custom Duties / Tax:</span>
+                        <span class="font-mono text-emerald-500 font-extrabold">Exempt ($0.00)</span>
+                    </div>
+                    <div class="flex justify-between text-xs font-black uppercase tracking-wider text-white pt-2 border-t border-slate-800">
+                        <span>Aggregated Total Outright Cost:</span>
+                        <span class="font-mono text-amber-500 text-sm">$${fullTotalSum}.00 USD</span>
+                    </div>
+                </div>
+
+                <!-- Conditional Operational Block Insertion Injection -->
+                ${interactiveActionBlock}
+            `;
         }
 
-        // Initialize Primary Build Call
-        renderGrid();
+        // Run Build State initialization setups on primary lifecycle deployment call triggers
+        renderStoreFrontGrid();
     </script>
 </body>
 </html>
