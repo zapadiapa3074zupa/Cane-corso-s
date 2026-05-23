@@ -3,142 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Royal Cane Corso - Elite Purebred Registries</title>
+    <title>Royal Cane Corso - Find Your Perfect Companion</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        amber: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
-                        slate: { 900: '#0f172a', 950: '#020617' }
+                        brand: { 500: '#b45309', 600: '#92400e' } // Warm, welcoming brown accents
                     }
                 }
             }
         }
     </script>
-    <style>
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        html { scroll-behavior: smooth; }
-    </style>
 </head>
-<body class="bg-slate-950 text-slate-200 font-sans antialiased selection:bg-amber-500/20 selection:text-amber-400">
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-    <header class="border-b sticky top-0 z-50 backdrop-blur-lg border-slate-900 bg-slate-950/80">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3.5 cursor-pointer" onclick="navigateTo('store')">
-                <div class="p-2 bg-gradient-to-br from-amber-500/20 to-transparent border border-amber-500/30 rounded-xl shadow-inner">
-                    <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('store')">
+                <div class="p-2 bg-amber-50 rounded-full text-amber-600">
+                    🐾
                 </div>
-                <div>
-                    <h1 class="text-lg font-black tracking-widest uppercase text-white leading-none">Royal Corso</h1>
-                    <p class="text-[9px] tracking-widest text-slate-500 font-bold uppercase mt-1">NJ Purebred Registry Network</p>
+                <div class="text-center sm:text-left">
+                    <h1 class="text-xl font-bold text-gray-900 tracking-wide">Royal Cane Corso</h1>
+                    <p class="text-xs text-gray-500 font-medium">Beautiful, Healthy Puppies & Adults in New Jersey</p>
                 </div>
             </div>
-            <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-slate-400 bg-slate-900 border border-slate-800/80 px-3.5 py-2 rounded-xl shadow-sm">
-                <span class="inline-block w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-                Authorized US Regional Desk
+            <div class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+                Available for Homes Across the USA
             </div>
         </div>
     </header>
 
-    <div id="page-store" class="page-view space-y-12 py-12">
-        <section class="max-w-4xl mx-auto px-6 text-center space-y-5">
-            <span class="inline-flex items-center gap-2 text-amber-400 text-[10px] font-bold uppercase tracking-widest bg-amber-500/5 px-4 py-2 rounded-full border border-amber-500/10 shadow-sm">
-                📍 Primary Breeding Base: New Jersey, USA
-            </span>
-            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white uppercase font-serif">
-                Available Cane Corso Registries
+    <div id="page-store" class="page-view space-y-8 py-8">
+        <section class="max-w-3xl mx-auto px-4 text-center space-y-3">
+            <h2 class="text-3xl font-extrabold text-gray-950 sm:text-4xl">
+                Find Your New Best Friend!
             </h2>
-            <p class="text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed font-light">
-                Explore our elite-tier lineage. Standard puppies are set at $500; premium pre-trained guard assets are set at $1000. Review full blueprints below, and connect with us directly via Facebook to request live, high-resolution media dossiers.
+            <p class="text-base text-gray-600 font-light max-w-xl mx-auto">
+                We raise beautiful, friendly, and protective dogs. Puppies are $500 and fully trained adult dogs are $1000. Click a dog to see their details, or message us on Facebook to see live pictures!
             </p>
         </section>
 
-        <section class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-2.5">
-            <button onclick="setCategoryFilter('ALL')" id="cat-ALL" class="cat-toggle-btn px-6 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-amber-500 text-slate-950 shadow-md shadow-amber-500/5">All Tiers</button>
-            <button onclick="setCategoryFilter('Puppy')" id="cat-Puppy" class="cat-toggle-btn px-6 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-900/50 border border-slate-800/60 text-slate-400 hover:text-white hover:bg-slate-900">Standard Puppies ($500)</button>
-            <button onclick="setCategoryFilter('Pre-Trained Adult')" id="cat-Adult" class="cat-toggle-btn px-6 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-900/50 border border-slate-800/60 text-slate-400 hover:text-white hover:bg-slate-900">Pre-Trained Guardians ($1000)</button>
+        <section class="max-w-6xl mx-auto px-4 flex justify-center gap-2">
+            <button onclick="setCategoryFilter('ALL')" id="cat-ALL" class="cat-toggle-btn px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all bg-amber-600 text-white shadow-sm">All Dogs</button>
+            <button onclick="setCategoryFilter('Puppy')" id="cat-Puppy" class="cat-toggle-btn px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all bg-white border border-gray-300 text-gray-600 hover:bg-gray-50">Puppies ($500)</button>
+            <button onclick="setCategoryFilter('Pre-Trained Adult')" id="cat-Adult" class="cat-toggle-btn px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all bg-white border border-gray-300 text-gray-600 hover:bg-gray-50">Trained Adults ($1000)</button>
         </section>
 
-        <main class="max-w-7xl mx-auto px-6 pb-20">
+        <main class="max-w-6xl mx-auto px-4 pb-16">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="puppy-catalog-target">
                 </div>
         </main>
     </div>
 
 
-    <div id="page-checkout" class="page-view hidden space-y-10 py-12 bg-slate-900/20 min-h-screen border-t border-slate-900">
-        <section class="max-w-6xl mx-auto px-6">
-            <button onclick="navigateTo('store')" class="inline-flex items-center gap-2 text-[10px] font-bold text-slate-400 hover:text-white transition-all uppercase tracking-widest mb-8 bg-slate-900 border border-slate-800/80 px-4 py-2.5 rounded-xl shadow-sm">
-                ← Return to Registry Catalog
+    <div id="page-checkout" class="page-view hidden space-y-8 py-8 min-h-screen">
+        <section class="max-w-5xl mx-auto px-4">
+            <button onclick="navigateTo('store')" class="inline-flex items-center gap-1.5 text-xs font-bold text-gray-600 hover:text-amber-700 transition-all mb-6 bg-white border border-gray-300 px-4 py-2 rounded-lg shadow-sm">
+                ← Back to See All Dogs
             </button>
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
                 <div class="lg:col-span-7 space-y-6">
-                    <div class="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl space-y-5 shadow-xl backdrop-blur-md">
-                        <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
-                            <div>
-                                <h3 class="text-sm font-bold uppercase text-white tracking-wider">1. Logistics Setup Verification</h3>
-                                <p class="text-[11px] text-slate-400 mt-0.5 font-light">Specify handling deployment targets to compute processing fees.</p>
-                            </div>
-                            <span class="text-[9px] bg-amber-500/10 text-amber-400 border border-amber-500/20 font-bold px-2.5 py-1 rounded-md uppercase tracking-widest">Step 1 of 2</span>
+                    <div class="bg-white border border-gray-200 p-6 rounded-2xl space-y-4 shadow-sm">
+                        <div class="border-b border-gray-100 pb-3">
+                            <h3 class="text-base font-bold text-gray-900">Step 1: Your Delivery Information</h3>
+                            <p class="text-xs text-gray-500">Please fill out your address so we know where to send your dog or arrange a pickup.</p>
                         </div>
 
-                        <form id="shipping-address-form" class="space-y-4 text-xs" oninput="calculateOrderTotals()">
-                            <div class="space-y-1.5">
-                                <label class="text-[10px] font-bold uppercase text-slate-400 tracking-widest block">Full Legal Recipient Name</label>
-                                <input type="text" id="cust-name" required placeholder="John Doe" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500/50 transition-all placeholder:text-slate-700">
+                        <form id="shipping-address-form" class="space-y-3.5 text-xs" oninput="calculateOrderTotals()">
+                            <div>
+                                <label class="text-[11px] font-bold text-gray-600 block mb-1">Your Full Name</label>
+                                <input type="text" id="cust-name" required placeholder="John Doe" class="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 font-medium focus:outline-none focus:border-amber-600 focus:bg-white transition-all">
                             </div>
 
-                            <div class="space-y-1.5">
-                                <label class="text-[10px] font-bold uppercase text-slate-400 tracking-widest block">Street Delivery Address Line</label>
-                                <input type="text" id="cust-address" required placeholder="123 Jersey Ave" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500/50 transition-all placeholder:text-slate-700">
+                            <div>
+                                <label class="text-[11px] font-bold text-gray-600 block mb-1">Street Address</label>
+                                <input type="text" id="cust-address" required placeholder="123 Main Street" class="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 font-medium focus:outline-none focus:border-amber-600 focus:bg-white transition-all">
                             </div>
 
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                                <div class="space-y-1.5">
-                                    <label class="text-[10px] font-bold uppercase text-slate-400 tracking-widest block">City</label>
-                                    <input type="text" id="cust-city" required placeholder="Newark" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500/50 transition-all placeholder:text-slate-700">
+                                <div>
+                                    <label class="text-[11px] font-bold text-gray-600 block mb-1">City</label>
+                                    <input type="text" id="cust-city" required placeholder="Newark" class="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 font-medium focus:outline-none focus:border-amber-600 focus:bg-white transition-all">
                                 </div>
-                                <div class="space-y-1.5">
-                                    <label class="text-[10px] font-bold uppercase text-slate-400 tracking-widest block">State (USA Only)</label>
-                                    <input type="text" id="cust-state" required placeholder="NJ" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500/50 transition-all placeholder:text-slate-700">
+                                <div>
+                                    <label class="text-[11px] font-bold text-gray-600 block mb-1">State (USA Only)</label>
+                                    <input type="text" id="cust-state" required placeholder="NJ" class="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 font-medium focus:outline-none focus:border-amber-600 focus:bg-white transition-all">
                                 </div>
-                                <div class="space-y-1.5">
-                                    <label class="text-[10px] font-bold uppercase text-slate-400 tracking-widest block">Zip Code</label>
-                                    <input type="text" id="cust-zip" required placeholder="07101" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500/50 transition-all placeholder:text-slate-700">
+                                <div>
+                                    <label class="text-[11px] font-bold text-gray-600 block mb-1">Zip Code</label>
+                                    <input type="text" id="cust-zip" required placeholder="07101" class="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 font-medium focus:outline-none focus:border-amber-600 focus:bg-white transition-all">
                                 </div>
                             </div>
 
-                            <div class="pt-5 border-t border-slate-800/60 space-y-2.5">
-                                <label class="text-[10px] font-bold uppercase text-slate-400 tracking-widest block mb-1">Fulfillment Delivery Protocol</label>
+                            <div class="pt-4 border-t border-gray-100 space-y-2">
+                                <label class="text-[11px] font-bold text-gray-700 block mb-1">How would you like to get your dog?</label>
                                 
-                                <label class="block relative p-4 rounded-xl border bg-slate-950/40 border-slate-800 cursor-pointer hover:border-slate-700/60 transition-all select-none">
+                                <label class="block relative p-3.5 rounded-xl border bg-white border-gray-200 cursor-pointer hover:bg-gray-50 transition-all select-none">
                                     <div class="flex items-start gap-3">
-                                        <input type="radio" name="fulfillment_mode" id="mode-pickup" value="PICKUP" checked class="mt-1 accent-amber-500 scale-110">
+                                        <input type="radio" name="fulfillment_mode" id="mode-pickup" value="PICKUP" checked class="mt-1 accent-amber-600 scale-110">
                                         <div>
                                             <div class="flex items-center gap-2">
-                                                <span class="text-xs font-bold text-white uppercase tracking-wide">Direct Local Kennel Pickup</span>
-                                                <span class="text-[8px] font-black bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded text-emerald-400 uppercase tracking-wider">Complementary</span>
+                                                <span class="text-xs font-bold text-gray-900">Pick Up at Our New Jersey Kennel</span>
+                                                <span class="text-[10px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">FREE</span>
                                             </div>
-                                            <p class="text-[11px] text-slate-400 mt-1 leading-relaxed font-light">Arrange an in-person handover directly at our primary facility coordinates in New Jersey by post-purchase scheduling.</p>
+                                            <p class="text-[11px] text-gray-500 mt-0.5 font-light">Come visit us in person! We will schedule a time that works best for you to pick up your dog.</p>
                                         </div>
                                     </div>
                                 </label>
 
-                                <label class="block relative p-4 rounded-xl border bg-slate-950/40 border-slate-800 cursor-pointer hover:border-slate-700/60 transition-all select-none">
+                                <label class="block relative p-3.5 rounded-xl border bg-white border-gray-200 cursor-pointer hover:bg-gray-50 transition-all select-none">
                                     <div class="flex items-start gap-3">
-                                        <input type="radio" name="fulfillment_mode" id="mode-transport" value="TRANSPORT" class="mt-1 accent-amber-500 scale-110">
+                                        <input type="radio" name="fulfillment_mode" id="mode-transport" value="TRANSPORT" class="mt-1 accent-amber-600 scale-110">
                                         <div>
                                             <div class="flex items-center gap-2">
-                                                <span class="text-xs font-bold text-white uppercase tracking-wide">Climate-Controlled K9 Ground Transport</span>
-                                                <span class="text-[8px] font-black bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded text-amber-400 tracking-wider">+$25.00 FLAT RATE</span>
+                                                <span class="text-xs font-bold text-gray-900">Safe K9 Ground Home Delivery</span>
+                                                <span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded">+$25.00 FLAT RATE</span>
                                             </div>
-                                            <p class="text-[11px] text-slate-400 mt-1 leading-relaxed font-light">Animals are securely routed via specialized climate-regulated safe transit K9 vehicles directly to your validated USA location box.</p>
+                                            <p class="text-[11px] text-gray-500 mt-0.5 font-light">We will safely drive your new dog right to your house in a safe, air-conditioned vehicle anywhere in the US.</p>
                                         </div>
                                     </div>
                                 </label>
@@ -146,62 +133,42 @@
                         </form>
                     </div>
 
-                    <div class="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl space-y-5 shadow-xl backdrop-blur-md">
-                        <div class="border-b border-slate-800 pb-4">
-                            <h3 class="text-sm font-bold uppercase text-white tracking-wider">2. Verified PayPal Checkout Escrow Guide</h3>
-                            <p class="text-xs text-slate-400 font-light mt-0.5">Follow these chronological phases to securely clear your registry acquisition.</p>
+                    <div class="bg-white border border-gray-200 p-6 rounded-2xl space-y-4 shadow-sm">
+                        <div class="border-b border-gray-100 pb-3">
+                            <h3 class="text-base font-bold text-gray-900">Step 2: How to Complete Your Payment</h3>
+                            <p class="text-xs text-gray-500">We use PayPal to make sure your money is 100% safe. Just follow these simple steps:</p>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                            <div class="p-4 bg-slate-950/50 border border-slate-800/60 rounded-xl space-y-1">
-                                <div class="flex items-center justify-between text-amber-500 font-mono font-bold text-[10px] tracking-wider mb-1">
-                                    <span>PHASE 01</span>
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                                </div>
-                                <h4 class="font-bold text-white uppercase text-[10px] tracking-wide">Initialize Gateway</h4>
-                                <p class="text-[11px] text-slate-400 leading-relaxed font-light">Trigger the calculated payment link below to pass the custom-calculated line parameters securely into the commercial PayPal interface.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                            <div class="p-3.5 bg-gray-50 rounded-xl space-y-0.5">
+                                <span class="text-amber-700 font-bold text-[10px]">STEP 1</span>
+                                <h4 class="font-bold text-gray-900">Click the Button</h4>
+                                <p class="text-[11px] text-gray-600 font-light">Fill out your address form first, then click the blue PayPal button on the right side of the screen.</p>
                             </div>
 
-                            <div class="p-4 bg-slate-950/50 border border-slate-800/60 rounded-xl space-y-1">
-                                <div class="flex items-center justify-between text-amber-500 font-mono font-bold text-[10px] tracking-wider mb-1">
-                                    <span>PHASE 02</span>
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                                </div>
-                                <h4 class="font-bold text-white uppercase text-[10px] tracking-wide">Synchronize Details</h4>
-                                <p class="text-[11px] text-slate-400 leading-relaxed font-light">Ensure your internal PayPal shipping profile selection precisely matches the logistical form layout details input on this system page.</p>
+                            <div class="p-3.5 bg-gray-50 rounded-xl space-y-0.5">
+                                <span class="text-amber-700 font-bold text-[10px]">STEP 2</span>
+                                <h4 class="font-bold text-gray-900">Log In Securely</h4>
+                                <p class="text-[11px] text-gray-600 font-light">Log into your PayPal account or pay with a normal credit/debit card as a guest. It takes under two minutes.</p>
                             </div>
 
-                            <div class="p-4 bg-slate-950/50 border border-slate-800/60 rounded-xl space-y-1">
-                                <div class="flex items-center justify-between text-amber-500 font-mono font-bold text-[10px] tracking-wider mb-1">
-                                    <span>PHASE 03</span>
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 012 2H5a2 2 0 01-2-2V9zM3 9h18"/></svg>
-                                </div>
-                                <h4 class="font-bold text-white uppercase text-[10px] tracking-wide">Authorize Deposit</h4>
-                                <p class="text-[11px] text-slate-400 leading-relaxed font-light">Authorize the settlement invoice. Capture a high-contrast digital screenshot of the receipt screen showing transaction parameters.</p>
+                            <div class="p-3.5 bg-gray-50 rounded-xl space-y-0.5">
+                                <span class="text-amber-700 font-bold text-[10px]">STEP 3</span>
+                                <h4 class="font-bold text-gray-900">Take a Screenshot</h4>
+                                <p class="text-[11px] text-gray-600 font-light">Once you pay, take a simple picture or screenshot of your final receipt on your screen.</p>
                             </div>
 
-                            <div class="p-4 bg-slate-950/50 border border-slate-800/60 rounded-xl space-y-1">
-                                <div class="flex items-center justify-between text-amber-500 font-mono font-bold text-[10px] tracking-wider mb-1">
-                                    <span>PHASE 04</span>
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-                                </div>
-                                <h4 class="font-bold text-white uppercase text-[10px] tracking-wide">Forward Metadata</h4>
-                                <p class="text-[11px] text-slate-400 leading-relaxed font-light">Relay the invoice slip straight into our official Facebook chat network to lock in transit assignments and dispatch priority schedules.</p>
+                            <div class="p-3.5 bg-gray-50 rounded-xl space-y-0.5">
+                                <span class="text-amber-700 font-bold text-[10px]">STEP 4</span>
+                                <h4 class="font-bold text-gray-900">Send to Facebook Chat</h4>
+                                <p class="text-[11px] text-gray-600 font-light">Send that picture over to our Facebook chat link. We will immediately confirm your delivery date!</p>
                             </div>
-                        </div>
-
-                        <div class="bg-slate-950 border border-slate-800/60 rounded-xl p-4 flex gap-3 items-start text-xs text-slate-400">
-                            <span class="text-amber-500 text-sm">🛡️</span>
-                            <p class="leading-relaxed font-light">
-                                <strong class="text-white uppercase font-bold text-[10px] tracking-wider block mb-0.5">Escrow Buyer Protection Standard</strong>
-                                We handle processing purely via verified commercial payment parameters. This strict operational sequence guarantees security protocols across large-breed asset handovers.
-                            </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="lg:col-span-5 sticky top-24">
-                    <div id="checkout-receipt-card" class="bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 shadow-xl backdrop-blur-md space-y-4">
+                    <div id="checkout-receipt-card" class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm space-y-4">
                         </div>
                 </div>
 
@@ -209,111 +176,110 @@
         </section>
     </div>
 
-    <div id="details-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 max-w-xl w-full rounded-2xl overflow-hidden shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
-            <div class="p-6 border-b border-slate-800/60 bg-slate-950/30 flex justify-between items-start">
+    <div id="details-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-gray-950/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white max-w-lg w-full rounded-2xl overflow-hidden shadow-2xl relative animate-in fade-in zoom-in-95 duration-150">
+            <div class="p-5 border-b border-gray-100 bg-gray-50 flex justify-between items-start">
                 <div>
-                    <span id="modal-dog-badge" class="text-[8px] font-black tracking-widest bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded uppercase font-sans">PUPPY SELECTION</span>
-                    <h3 id="modal-dog-name" class="text-xl font-extrabold text-white uppercase tracking-wide mt-1.5 font-serif">Dog Name</h3>
-                    <p id="modal-dog-coat" class="text-xs text-amber-400/90 italic font-light">Coat Pattern Specs</p>
+                    <span id="modal-dog-badge" class="text-[10px] font-bold tracking-wide bg-amber-100 text-amber-900 px-2.5 py-0.5 rounded-full uppercase">Puppy</span>
+                    <h3 id="modal-dog-name" class="text-2xl font-bold text-gray-900 mt-1">Dog Name</h3>
+                    <p id="modal-dog-coat" class="text-xs text-amber-700 font-medium mt-0.5">Coat Color</p>
                 </div>
-                <button onclick="closeDetailsModal()" class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white p-2 rounded-xl transition-all">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                <button onclick="closeDetailsModal()" class="bg-white hover:bg-gray-100 border border-gray-200 text-gray-500 hover:text-gray-800 p-2 rounded-xl transition-all shadow-sm">
+                    ✕
                 </button>
             </div>
 
-            <div class="p-6 space-y-5 max-h-[65vh] overflow-y-auto no-scrollbar text-xs">
+            <div class="p-5 space-y-4 max-h-[60vh] overflow-y-auto no-scrollbar text-xs">
                 <div class="grid grid-cols-3 gap-2.5 text-center">
-                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/50">
-                        <span class="text-slate-500 text-[8px] font-bold uppercase tracking-widest block mb-1">Age Index</span>
-                        <strong id="modal-dog-age" class="text-white text-xs font-mono font-bold">8 Weeks</strong>
+                    <div class="bg-gray-50 p-2.5 rounded-xl border border-gray-200/60">
+                        <span class="text-gray-500 text-[10px] block mb-0.5">Age</span>
+                        <strong id="modal-dog-age" class="text-gray-900 text-sm font-bold">8 Weeks</strong>
                     </div>
-                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/50">
-                        <span class="text-slate-500 text-[8px] font-bold uppercase tracking-widest block mb-1">Mass Index</span>
-                        <strong id="modal-dog-weight" class="text-white text-xs font-mono font-bold">15 lbs</strong>
+                    <div class="bg-gray-50 p-2.5 rounded-xl border border-gray-200/60">
+                        <span class="text-gray-500 text-[10px] block mb-0.5">Weight</span>
+                        <strong id="modal-dog-weight" class="text-gray-900 text-sm font-bold">15 lbs</strong>
                     </div>
-                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/50">
-                        <span class="text-slate-500 text-[8px] font-bold uppercase tracking-widest block mb-1">Registry Capital</span>
-                        <strong id="modal-dog-price" class="text-amber-500 text-xs font-mono font-bold">$500</strong>
+                    <div class="bg-amber-50 p-2.5 rounded-xl border border-amber-200/60">
+                        <span class="text-amber-700 text-[10px] block mb-0.5">Price</span>
+                        <strong id="modal-dog-price" class="text-amber-800 text-sm font-bold">$500</strong>
                     </div>
                 </div>
 
-                <div class="space-y-4 text-slate-300">
-                    <div class="space-y-1">
-                        <h4 class="text-white font-bold uppercase tracking-wider text-[10px] flex items-center gap-1.5">📋 Lineage Profile & Analysis</h4>
-                        <p id="modal-dog-desc" class="text-slate-400 leading-relaxed font-light">Detailed summary text goes here profile.</p>
+                <div class="space-y-3">
+                    <div class="space-y-1 bg-amber-50/30 p-3 rounded-xl border border-amber-100">
+                        <h4 class="text-gray-900 font-bold text-xs">👋 About This Dog:</h4>
+                        <p id="modal-dog-desc" class="text-gray-600 leading-relaxed text-[12px] font-light">Dog story description fills in here.</p>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
-                        <div class="space-y-2 bg-slate-950/30 border border-slate-800/60 p-3.5 rounded-xl">
-                            <h5 class="text-amber-500 font-bold uppercase tracking-widest text-[9px]">🧠 Temperament Evaluation</h5>
-                            <ul class="space-y-1.5 text-slate-400 text-[11px]">
-                                <li class="flex justify-between border-b border-slate-900/60 pb-1"><span>Env. Stability:</span> <strong class="text-white font-mono font-medium">High / Certified</strong></li>
-                                <li class="flex justify-between border-b border-slate-900/60 pb-1"><span>Social Drive:</span> <strong class="text-white font-mono font-medium">Attentive / Stable</strong></li>
-                                <li class="flex justify-between"><span>Family Safe:</span> <strong class="text-white font-mono font-medium">100% Monitored</strong></li>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="bg-gray-50 border border-gray-200 p-3 rounded-xl space-y-1">
+                            <h5 class="text-amber-800 font-bold text-[11px]">❤️ Personality Evaluation</h5>
+                            <ul class="space-y-1 text-gray-600 text-[11px] font-light">
+                                <li>✨ Very friendly with families</li>
+                                <li>✨ Happy around active kids</li>
+                                <li>✨ Calm & loving house dog</li>
                             </ul>
                         </div>
 
-                        <div class="space-y-2 bg-slate-950/30 border border-slate-800/60 p-3.5 rounded-xl">
-                            <h5 class="text-amber-500 font-bold uppercase tracking-widest text-[9px]">🛡️ Tactical Readiness Status</h5>
-                            <ul class="space-y-1.5 text-slate-400 text-[11px]">
-                                <li class="flex justify-between border-b border-slate-900/60 pb-1"><span>Leash Compliance:</span> <strong id="modal-dog-leash" class="text-white font-mono font-medium">Intro Stage</strong></li>
-                                <li class="flex justify-between border-b border-slate-900/60 pb-1"><span>House Integration:</span> <strong id="modal-dog-house" class="text-white font-mono font-medium">In Progress</strong></li>
-                                <li class="flex justify-between"><span>Alert Instinct:</span> <strong id="modal-dog-threat" class="text-white font-mono font-medium">Passive Guard</strong></li>
+                        <div class="bg-gray-50 border border-gray-200 p-3 rounded-xl space-y-1">
+                            <h5 class="text-amber-800 font-bold text-[11px]">🏡 Training Status</h5>
+                            <ul class="space-y-1 text-gray-600 text-[11px] font-light">
+                                <li class="flex justify-between"><span>Walks on Leash:</span> <strong id="modal-dog-leash" class="text-gray-900 font-bold">Intro Level</strong></li>
+                                <li class="flex justify-between"><span>House Trained:</span> <strong id="modal-dog-house" class="text-gray-900 font-bold">Learning</strong></li>
+                                <li class="flex justify-between"><span>Watchdog Skills:</span> <strong id="modal-dog-threat" class="text-gray-900 font-bold">Alert</strong></li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="bg-slate-950/40 border border-slate-800 p-4 rounded-xl space-y-1.5">
-                        <h5 class="text-emerald-400 font-bold uppercase tracking-widest text-[9px] flex items-center gap-1">🩺 Certified Veterinary Clearance</h5>
-                        <p class="text-slate-400 leading-relaxed font-light text-[11px]">
-                            Accompanied fully by certified purebred registration tracking files, complete veterinary clearance diagnostics, and age-calibrated immunization logs. Hip, bone density, and structural skeletal joint geometries screen-vetted for optimal performance lines.
+                    <div class="bg-emerald-50/50 border border-emerald-200 p-3.5 rounded-xl space-y-1">
+                        <h5 class="text-emerald-800 font-bold text-[11px] flex items-center gap-1">🩺 Clean Health Records</h5>
+                        <p class="text-emerald-700 leading-relaxed font-light text-[11px]">
+                            Comes home with purebred registration papers, a physical vet health certificate, and all standard puppy shots up-to-date. Parents have perfectly strong hips and healthy bodies.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="p-4 border-t border-slate-800 bg-slate-950/40 flex gap-2.5">
-                <button id="modal-buy-btn" class="flex-1 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition-all shadow-md">
-                    Proceed to Verification Gateway
+            <div class="p-4 border-t border-gray-100 bg-gray-50 flex gap-2">
+                <button id="modal-buy-btn" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2.5 rounded-xl text-xs uppercase tracking-wide transition-all shadow-sm">
+                    Bring Me Home!
                 </button>
-                <button onclick="closeDetailsModal()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium px-5 rounded-xl text-xs uppercase tracking-wider transition-all border border-slate-700">
-                    Close
+                <button onclick="closeDetailsModal()" class="bg-white hover:bg-gray-100 text-gray-700 font-medium px-4 rounded-xl text-xs border border-gray-300 shadow-sm">
+                    Go Back
                 </button>
             </div>
         </div>
     </div>
 
     <script>
-        // Expanded 24-Dog Premium Registry Inventory (Puppies = $500, Pre-Trained Adults = $1000)
         const puppyInventory = [
-            // --- Standard Puppies Block ($500) ---
-            { id: 1, name: "Zeus", type: "Puppy", price: 500, coat: "Dark Reverse Brindle", age: "9 Weeks", weight: "18.2 lbs", description: "Impeccable reverse striping with a stark white chest crest flash. Highly socialized, exceptionally playful, and exhibits superb tracking focus during early developmental handling sequences." },
-            { id: 2, name: "Athena", type: "Puppy", price: 500, coat: "Deep Slate Blue", age: "8 Weeks", weight: "15.8 lbs", description: "Clean athletic posture on an incredibly solid bone structure frame. Features precision ear crop balancing parameters and a high-tier environmental curious drive profile." },
-            { id: 3, name: "Titan", type: "Puppy", price: 500, coat: "Velvet Smoked Blue", age: "8 Weeks", weight: "16.1 lbs", description: "Striking light contrast hazel-blue eyes coupled with a perfectly proportioned square muzzle block. Calm, patient temperament structure ideal for multi-member home layouts." },
-            { id: 4, name: "Bella", type: "Puppy", price: 500, coat: "Solid Blue / Silver", age: "8 Weeks", weight: "14.9 lbs", description: "Soft, beautifully unique silver-grey coat accenting soft natural drop ears. Highly affectionate, loves human contact tracking loops, excellent vet diagnostic clearance." },
-            { id: 5, name: "Kratos", type: "Puppy", price: 500, coat: "Active Slate Gray", age: "9 Weeks", weight: "17.4 lbs", description: "Expresses high joy markers and robust social pack drive values. Extreme focus during food routing training, perfectly clear eyes, raised meticulously in an open home system." },
-            { id: 6, name: "Juno", type: "Puppy", price: 500, coat: "Light Gray Brindle", age: "8 Weeks", weight: "15.2 lbs", description: "Distinct tiger brindle configuration highlighting rare gray base patterns. Perfectly straight leg alignment lines with a stable, highly composed standard behavior template." },
-            { id: 7, name: "Odin", type: "Puppy", price: 500, coat: "Solid Steel Blue", age: "10 Weeks", weight: "21.0 lbs", description: "Elite potential confirmation build with a massive regal head block form factor. Natural ears, deep wide stance density metrics, highly approachable family profile." },
-            { id: 8, name: "Roxy", type: "Puppy", price: 500, coat: "Carbon Black Brindle", age: "8 Weeks", weight: "14.3 lbs", description: "Glossy deep charcoal body layout with rich golden swirled points and white paw accents. Incredibly sweet disposition, highly alert environmental alarm triggers." },
-            { id: 9, name: "Remus", type: "Puppy", price: 500, coat: "Smoky Blue Micro Tones", age: "7 Weeks", weight: "11.6 lbs", description: "Early placement registry setup. Heavy skin wrinkling and chunkier footprint layout indicating substantial adult muscle growth curves. Strong clear respiratory values." },
-            { id: 10, name: "Cleo", type: "Puppy", price: 500, coat: "Golden Tiger Brindle", age: "8 Weeks", weight: "16.5 lbs", description: "Thick, high-contrast dark striping over a deep fawn gold background. Prominent wide front chest arch platform development, very bold explorer metrics." },
-            { id: 11, name: "Litter Pool Alpha", type: "Puppy", price: 500, coat: "Brindle / Solid Mix", age: "7 Weeks", weight: "12.0 lbs", description: "Group tracking choice reflecting our socialized, playful backyard-reared active purebred puppies. Excellent group exploration drives and highly robust structural joints." },
-            { id: 12, name: "Thor", type: "Puppy", price: 500, coat: "Sleek Charcoal Blue", age: "8 Weeks", weight: "15.9 lbs", description: "Stunning lower blocky stance frame with alert cropped ears and a sharp white lightning patch flash on the lower chest cavity. Very quiet and focused responder." },
+            // --- Puppies Block ($500) ---
+            { id: 1, name: "Zeus", type: "Puppy", price: 500, coat: "Dark Reverse Brindle", age: "9 Weeks", weight: "18.2 lbs", description: "Beautiful dark stripes with a nice white patch on his chest. He loves to play, is great around kids, and learns super fast during meal times." },
+            { id: 2, name: "Athena", type: "Puppy", price: 500, coat: "Deep Slate Blue", age: "8 Weeks", weight: "15.8 lbs", description: "A gorgeous gray puppy with a very athletic and strong build. Her ears are cropped beautifully and she loves exploring outside in the yard." },
+            { id: 3, name: "Titan", type: "Puppy", price: 500, coat: "Velvet Smoked Blue", age: "8 Weeks", weight: "16.1 lbs", description: "Beautiful light blue-hazel eyes with a perfectly square blocky head. He has a very quiet, sweet personality that is wonderful for families." },
+            { id: 4, name: "Bella", type: "Puppy", price: 500, coat: "Solid Blue / Silver", age: "8 Weeks", weight: "14.9 lbs", description: "Very soft silver-gray coat with natural floppy ears. She is extremely loving, loves to follow you around the house, and passed her vet check perfectly." },
+            { id: 5, name: "Kratos", type: "Puppy", price: 500, coat: "Active Slate Gray", age: "9 Weeks", weight: "17.4 lbs", description: "A very happy, high-energy puppy who loves playing with toys. Meticulously raised inside our house so he is used to everyday home noises." },
+            { id: 6, name: "Juno", type: "Puppy", price: 500, coat: "Light Gray Brindle", age: "8 Weeks", weight: "15.2 lbs", description: "A rare light gray coat with sweet tiger stripes. She stands very straight and strong and has a calm, friendly attitude with everyone she meets." },
+            { id: 7, name: "Odin", type: "Puppy", price: 500, coat: "Solid Steel Blue", age: "10 Weeks", weight: "21.0 lbs", description: "An incredible big puppy with a heavy royal head structure. He has natural ears, a wide happy stance, and is very friendly and sweet." },
+            { id: 8, name: "Roxy", type: "Puppy", price: 500, coat: "Carbon Black Brindle", age: "8 Weeks", weight: "14.3 lbs", description: "Shiny dark charcoal coat with pretty golden swirls and cute white socks on her paws. Very sweet girl who will bark to alert you if someone is at the door." },
+            { id: 9, name: "Remus", type: "Puppy", price: 500, coat: "Smoky Blue Micro Tones", age: "7 Weeks", weight: "11.6 lbs", description: "A chunky puppy with heavy skin wrinkles showing he will grow into a huge, beautiful dog. Very healthy lungs and a highly playful spirit." },
+            { id: 10, name: "Cleo", type: "Puppy", price: 500, coat: "Golden Tiger Brindle", age: "8 Weeks", weight: "16.5 lbs", description: "Bold dark stripes over a beautiful rich golden background. She has a wide front chest frame and is an adventurous little explorer." },
+            { id: 11, name: "Litter Pool Alpha", type: "Puppy", price: 500, coat: "Brindle / Solid Mix", age: "7 Weeks", weight: "12.0 lbs", description: "A great group choice representing our sweet, playful, family-raised purebred puppies. Healthy structural joints and full of energy." },
+            { id: 12, name: "Thor", type: "Puppy", price: 500, coat: "Sleek Charcoal Blue", age: "8 Weeks", weight: "15.9 lbs", description: "Stunning blocky body with clean cropped ears and a white lightning patch flash on his chest. He is a very quiet, smart listener." },
 
-            // --- FIXED PRE-TRAINED ADULT & GUARDIAN MATRIX ($1000) ---
-            { id: 13, name: "Shadow", type: "Pre-Trained Adult", price: 1000, coat: "Pure Onyx Black", age: "2 Years", weight: "115.4 lbs", description: "Elite fully grown estate and family protection asset. Certified master of property boundary loops, neutral social presence until threatened, precision verbal drop-command triggers." },
-            { id: 14, name: "Freya", type: "Pre-Trained Adult", price: 1000, coat: "Platinum Silver Gray", age: "18 Months", weight: "98.5 lbs", description: "Exhibits perfect structural confirmation stack lines on an elevated platform workspace. Impeccable obedience tracking certified with advanced public space navigation logic." },
-            { id: 15, name: "Ares", type: "Pre-Trained Adult", price: 1000, coat: "Deep Forged Brindle", age: "2.5 Years", weight: "122.1 lbs", description: "Advanced personal perimeter guardian. 100% house-broken, master-level off-leash heel commands, zero target drift, completely accustomed to loud noises and chaotic environments." },
-            { id: 16, name: "Valkyrie", type: "Pre-Trained Adult", price: 1000, coat: "Steel Slate Gray", age: "22 Months", weight: "101.3 lbs", description: "Premium female estate watch asset. Exceptional perimeter assessment instincts, high clarity situational awareness, loving home companion manners." },
-            { id: 17, name: "Goliath", type: "Pre-Trained Adult", price: 1000, coat: "Carbon Charcoal Black", age: "3 Years", weight: "130.4 lbs", description: "Massive physical footprint with highly imposing structural power lines. Advanced defensive compound alert protocols completed. Deeply loyal, affectionate family guardian build." },
-            { id: 18, name: "Scylla", type: "Pre-Trained Adult", price: 1000, coat: "Reverse Fawn Tiger", age: "19 Months", weight: "94.8 lbs", description: "Elite agility asset with lightning-fast off-leash response timing parameters. Outstanding dynamic handler sync, highly intelligent partner ideal for large dynamic acreage." },
-            { id: 19, name: "Rebel", type: "Pre-Trained Adult", price: 1000, coat: "Smoked Blue Mask Fawn", age: "2 Years", weight: "118.6 lbs", description: "Rich traditional deep mask coat styling. Soft gentle giant persona inside family living zones, powerful proactive warning presentation at outer secure gates." },
-            { id: 20, name: "Nyx", type: "Pre-Trained Adult", price: 1000, coat: "Jet Obsidian Solid", age: "20 Months", weight: "99.2 lbs", description: "Agile, energetic female working asset. High-drive tracking capabilities, fully crate settled, silent watch protocols active, immaculate vet score profile." },
-            { id: 21, name: "Caesar", type: "Pre-Trained Adult", price: 1000, coat: "Dark Slate Brindle", age: "3.5 Years", weight: "126.8 lbs", description: "Senior rank estate defender asset. Years of seasoned property preservation experience, exceptionally steady stoic demeanor, flawless reaction control accuracy." },
-            { id: 22, name: "Hera", type: "Pre-Trained Adult", price: 1000, coat: "Rich Chestnut Brindle", age: "21 Months", weight: "104.0 lbs", description: "Stunning swirled high-contrast coat presentation lines. Intuitively protective maternal lines, highly attentive to young children, crisp and responsive alert systems." },
-            { id: 23, name: "Brutus", type: "Pre-Trained Adult", price: 1000, coat: "Smoky Silver Slate", age: "15 Months", weight: "111.5 lbs", description: "Young adult powerhouse transitioning out of secondary complex obedience tracks. Clean massive head formation, high play drive balanced with structural mass." },
-            { id: 24, name: "Xena", type: "Pre-Trained Adult", price: 1000, coat: "Velvet Jet Black", age: "2.2 Years", weight: "96.7 lbs", description: "High-focus tactical threat mitigation asset. Specialized training in vehicular environment security and residential structural line access control systems." }
+            // --- PRE-TRAINED ADULTS ($1000) ---
+            { id: 13, name: "Shadow", type: "Pre-Trained Adult", price: 1000, coat: "Pure Onyx Black", age: "2 Years", weight: "115.4 lbs", description: "Fully grown, majestic protector for your family and house. Peaceful and loving inside the home, listens to verbal commands instantly, and drops items on command." },
+            { id: 14, name: "Freya", type: "Pre-Trained Adult", price: 1000, coat: "Platinum Silver Gray", age: "18 Months", weight: "98.5 lbs", description: "Stunning silver-gray female dog. Fully house trained, walks perfectly on a loose leash, and behaves excellently in public spaces like parks." },
+            { id: 15, name: "Ares", type: "Pre-Trained Adult", price: 1000, coat: "Deep Forged Brindle", age: "2.5 Years", weight: "122.1 lbs", description: "Advanced personal protection dog. 100% house broken, stays right at your heel without a leash, and is completely calm around loud noises or crowded environments." },
+            { id: 16, name: "Valkyrie", type: "Pre-Trained Adult", price: 1000, coat: "Steel Slate Gray", age: "22 Months", weight: "101.3 lbs", description: "Premium female house protector. Excellent natural instincts to watch over your yard, highly smart situational awareness, and has sweet home manners." },
+            { id: 17, name: "Goliath", type: "Pre-Trained Adult", price: 1000, coat: "Carbon Charcoal Black", age: "3 Years", weight: "130.4 lbs", description: "A massive, powerful giant with a huge physical presence. Fully trained in home alert protocols. Deeply loyal, gentle, and affectionate with his family pack." },
+            { id: 18, name: "Scylla", type: "Pre-Trained Adult", price: 1000, coat: "Reverse Fawn Tiger", age: "19 Months", weight: "94.8 lbs", description: "Fast, athletic girl with rapid off-leash response times. Very smart and responsive, making her an ideal companion for large acreage or farms." },
+            { id: 19, name: "Rebel", type: "Pre-Trained Adult", price: 1000, coat: "Smoked Blue Mask Fawn", age: "2 Years", weight: "118.6 lbs", description: "Traditional fawn coat with a dark mask face. A total gentle giant inside the living room around family, but gives a strong warning bark at your front gate." },
+            { id: 20, name: "Nyx", type: "Pre-Trained Adult", price: 1000, coat: "Jet Obsidian Solid", age: "20 Months", weight: "99.2 lbs", description: "Athletic, high-energy female helper dog. Completely crate trained, does quiet perimeter watch checks, and holds a perfect vet health score card." },
+            { id: 21, name: "Caesar", type: "Pre-Trained Adult", price: 1000, coat: "Dark Slate Brindle", age: "3.5 Years", weight: "126.8 lbs", description: "Experienced protector with years of yard-watching experience. Extremely steady, calm, and predictable demeanor. Perfect around small children." },
+            { id: 22, name: "Hera", type: "Pre-Trained Adult", price: 1000, coat: "Rich Chestnut Brindle", age: "21 Months", weight: "104.0 lbs", description: "Beautiful swirled warm tiger stripes. Naturally sweet maternal lines, very protective and loving with children, and has crisp alert reactions." },
+            { id: 23, name: "Brutus", type: "Pre-Trained Adult", price: 1000, coat: "Smoky Silver Slate", age: "15 Months", weight: "111.5 lbs", description: "Young powerhouse transitioning out of his advanced obedience classes. Huge head, great playful attitude, and highly muscular structure." },
+            { id: 24, name: "Xena", type: "Pre-Trained Adult", price: 1000, coat: "Velvet Jet Black", age: "2.2 Years", weight: "96.7 lbs", description: "Highly alert home guardian. Fully trained to protect your vehicle and watch over all structural door entrances to your house." }
         ];
 
         let activeCategoryFilter = 'ALL';
@@ -331,13 +297,13 @@
             activeCategoryFilter = category;
             
             document.querySelectorAll('.cat-toggle-btn').forEach(btn => {
-                btn.className = "cat-toggle-btn px-6 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-900/50 border border-slate-800/60 text-slate-400 hover:text-white hover:bg-slate-900";
+                btn.className = "cat-toggle-btn px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all bg-white border border-gray-300 text-gray-600 hover:bg-gray-50";
             });
             
             const mapping = { 'ALL': 'cat-ALL', 'Puppy': 'cat-Puppy', 'Pre-Trained Adult': 'cat-Adult' };
             const activeBtn = document.getElementById(mapping[category]);
             if (activeBtn) {
-                activeBtn.className = "cat-toggle-btn px-6 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-amber-500 text-slate-950 shadow-md shadow-amber-500/5";
+                activeBtn.className = "cat-toggle-btn px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all bg-amber-600 text-white shadow-sm";
             }
             
             renderStoreFrontGrid();
@@ -353,41 +319,40 @@
 
             filteredList.forEach(dog => {
                 container.innerHTML += `
-                    <div class="bg-slate-900/30 border border-slate-900 rounded-2xl overflow-hidden hover:border-slate-800/80 hover:bg-slate-900/50 transition-all duration-300 flex flex-col justify-between group shadow-xl">
-                        <div class="relative aspect-square bg-slate-950 flex flex-col items-center justify-center p-6 text-center border-b border-slate-900">
-                            <div class="p-3 bg-slate-900 rounded-2xl border border-slate-800/50 text-slate-700 mb-3 group-hover:scale-105 transition-all duration-300 shadow-inner">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 017.5 0z"/></svg>
+                    <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-md transition-all duration-200 flex flex-col justify-between shadow-sm group">
+                        <div class="relative aspect-square bg-gray-50 flex flex-col items-center justify-center p-6 text-center border-b border-gray-100">
+                            <div class="p-3 bg-white rounded-full border border-gray-200 text-gray-300 mb-2 shadow-inner group-hover:scale-105 transition-all">
+                                📷
                             </div>
-                            <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 bg-slate-900 px-3 py-1 rounded border border-slate-800/80 mb-1.5">Portfolio Unreleased</span>
-                            <p class="text-[10px] text-slate-500 max-w-[180px] leading-normal font-light">Request high-res profile media on Facebook Chat</p>
+                            <span class="text-[10px] font-bold text-gray-400 bg-white px-2.5 py-0.5 rounded border border-gray-200 mb-1">No Public Photo Yet</span>
+                            <p class="text-[11px] text-gray-500 max-w-[170px] leading-normal font-light">Ask for photos over on Facebook Chat!</p>
                             
-                            <span class="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md text-amber-500 text-[11px] font-bold font-mono px-3 py-1 rounded-lg border border-slate-800/80 shadow-md">$${dog.price}</span>
+                            <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-amber-800 text-xs font-bold px-2.5 py-1 rounded-lg border border-gray-200 shadow-sm">$${dog.price}</span>
                             
-                            <div class="absolute bottom-4 left-4 right-4 text-left">
-                                <h3 class="text-base font-bold text-white uppercase tracking-wide flex items-center gap-2 font-serif">
+                            <div class="absolute bottom-3 left-4 right-4 text-left">
+                                <h3 class="text-base font-bold text-gray-900 tracking-wide flex items-center gap-1.5">
                                     ${dog.name}
-                                    <span class="text-[8px] font-black tracking-widest bg-amber-500/10 border border-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded uppercase font-sans">${dog.type === 'Puppy' ? 'PUP' : 'GUARD'}</span>
+                                    <span class="text-[9px] font-bold bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded uppercase">${dog.type === 'Puppy' ? 'PUP' : 'ADULT'}</span>
                                 </h3>
-                                <p class="text-[10px] font-medium text-amber-400/80 italic mt-0.5">${dog.coat}</p>
+                                <p class="text-[11px] text-amber-700 font-medium italic mt-0.5">${dog.coat}</p>
                             </div>
                         </div>
 
-                        <div class="p-4 space-y-4 flex-grow flex flex-col justify-between">
+                        <div class="p-4 space-y-3 flex-grow flex flex-col justify-between">
                             <div class="space-y-2 text-xs">
-                                <div class="bg-slate-950/40 border border-slate-900 px-3 py-2 rounded-xl text-slate-400 font-mono flex justify-between text-[10px] shadow-inner">
-                                    <span>Age: <strong class="text-slate-300 font-sans font-medium">${dog.age}</strong></span>
-                                    <span>Weight: <strong class="text-slate-300 font-sans font-medium">${dog.weight}</strong></span>
+                                <div class="bg-gray-50 border border-gray-200/60 px-2.5 py-1.5 rounded-xl text-gray-600 flex justify-between text-[11px] font-medium shadow-inner">
+                                    <span>Age: <strong class="text-gray-900">${dog.age}</strong></span>
+                                    <span>Weight: <strong class="text-gray-900">${dog.weight}</strong></span>
                                 </div>
-                                <p class="text-slate-400 leading-relaxed text-[11px] line-clamp-2 font-light">${dog.description}</p>
+                                <p class="text-gray-500 leading-relaxed text-[11px] line-clamp-2 font-light">${dog.description}</p>
                             </div>
 
                             <div class="space-y-1.5 pt-1">
-                                <button onclick="openDetailsModal(${dog.id})" class="w-full bg-slate-950 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white font-medium py-2 rounded-xl transition-all uppercase tracking-wider text-[10px] flex items-center justify-center gap-1 shadow-sm">
-                                    <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                                    View Blueprint Details
+                                <button onclick="openDetailsModal(${dog.id})" class="w-full bg-gray-50 hover:bg-gray-100 border border-gray-300 text-gray-700 font-bold py-2 rounded-xl transition-all text-[11px] flex items-center justify-center gap-1 shadow-sm">
+                                    🔍 See Details & Checklist
                                 </button>
-                                <button onclick="triggerCheckoutFlow(${dog.id})" class="w-full bg-slate-800 hover:bg-amber-500 text-slate-200 hover:text-slate-950 font-bold py-2 rounded-xl transition-all uppercase tracking-wider text-[10px] duration-300">
-                                    Initiate Registry Request
+                                <button onclick="triggerCheckoutFlow(${dog.id})" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 rounded-xl transition-all text-[11px] shadow-sm">
+                                    Adopt This Dog
                                 </button>
                             </div>
                         </div>
@@ -396,31 +361,30 @@
             });
         }
 
-        // Modal Presentation Dynamic Data Injection Engine
+        // Pop-up Details Modal Filler
         function openDetailsModal(dogId) {
             const dog = puppyInventory.find(item => item.id === dogId);
             if (!dog) return;
 
-            document.getElementById('modal-dog-badge').innerText = dog.type === 'Puppy' ? 'STANDARD REGISTRY PUPPY' : 'ELITE PRE-TRAINED GUARDIAN ASSET';
+            document.getElementById('modal-dog-badge').innerText = dog.type === 'Puppy' ? 'Family Puppy Selection' : 'Fully Trained Adult Guardian';
             document.getElementById('modal-dog-name').innerText = dog.name;
-            document.getElementById('modal-dog-coat').innerText = `${dog.coat} Purebred Configuration`;
+            document.getElementById('modal-dog-coat').innerText = `${dog.coat} Purebred Cane Corso`;
             document.getElementById('modal-dog-age').innerText = dog.age;
             document.getElementById('modal-dog-weight').innerText = dog.weight;
-            document.getElementById('modal-dog-price').innerText = `$${dog.price}.00`;
+            document.getElementById('modal-dog-price').innerText = `$${dog.price}`;
             document.getElementById('modal-dog-desc').innerText = dog.description;
 
-            // Set dynamic training metric content depending on class rules
             if (dog.type === 'Puppy') {
-                document.getElementById('modal-dog-leash').innerText = "Intro / Shaping";
-                document.getElementById('modal-dog-house').innerText = "Crate Conditioning";
-                document.getElementById('modal-dog-threat').innerText = "Passive Companion";
+                document.getElementById('modal-dog-leash').innerText = "Learning (Intro)";
+                document.getElementById('modal-dog-house').innerText = "Crate Training";
+                document.getElementById('modal-dog-threat').innerText = "Sweet Companion";
             } else {
-                document.getElementById('modal-dog-leash').innerText = "100% Off-Leash Certified";
-                document.getElementById('modal-dog-house').innerText = "Fully House Integrated";
-                document.getElementById('modal-dog-threat').innerText = "Active Command Alert";
+                document.getElementById('modal-dog-leash').innerText = "Perfect (No Leash Needed)";
+                document.getElementById('modal-dog-house').innerText = "100% Fully Trained";
+                document.getElementById('modal-dog-threat').innerText = "Active Guardian";
             }
 
-            // Assign immediate checkout routing to the inner button
+            // Click to Buy inside Modal
             document.getElementById('modal-buy-btn').onclick = function() {
                 closeDetailsModal();
                 triggerCheckoutFlow(dog.id);
@@ -462,54 +426,54 @@
 
             if (isFormComplete) {
                 interactiveActionBlock = `
-                    <div class="space-y-2.5 pt-3 border-t border-slate-800">
-                        <a href="${PAYPAL_ENDPOINT_BASE}/${fullTotalSum}" target="_blank" rel="noopener noreferrer" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl transition-all text-center block text-xs uppercase tracking-widest shadow-lg shadow-blue-600/10">
-                            Launch PayPal Gateway ($${fullTotalSum}.00) ↗
+                    <div class="space-y-2 pt-2 border-t border-gray-100">
+                        <a href="${PAYPAL_ENDPOINT_BASE}/${fullTotalSum}" target="_blank" rel="noopener noreferrer" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl transition-all text-center block text-xs tracking-wide shadow-md shadow-blue-600/10">
+                            Pay Securely on PayPal ($${fullTotalSum}.00) ↗
                         </a>
-                        <a href="${FACEBOOK_LINK_ENDPOINT}" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium py-2.5 px-4 rounded-xl transition-all text-center block text-[10px] uppercase tracking-wider border border-slate-700/60">
-                            Forward Receipt to Facebook Support ↗
+                        <a href="${FACEBOOK_LINK_ENDPOINT}" target="_blank" rel="noopener noreferrer" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded-xl transition-all text-center block text-[11px] border border-gray-300">
+                            Send Receipt to Us on Facebook ↗
                         </a>
-                        <p class="text-[10px] text-slate-500 text-center leading-normal font-light">Secure redirect anchors process your settlement statement inside secure merchant layers.</p>
+                        <p class="text-[10px] text-gray-400 text-center leading-normal font-light">Clicking payment takes you directly to the safe, official PayPal portal.</p>
                     </div>
                 `;
             } else {
                 interactiveActionBlock = `
-                    <div class="bg-slate-950/40 border border-dashed border-slate-800 p-5 rounded-xl text-center text-[11px] text-slate-500 font-medium leading-relaxed shadow-inner">
-                        ⚠️ <span class="text-amber-500 font-bold uppercase tracking-wider text-[10px] block mt-0.5">Awaiting Logistics Data</span>
-                        Populate your structural USA shipping parameters inside the form grid to activate secure payment links.
+                    <div class="bg-gray-50 border border-dashed border-gray-300 p-4 rounded-xl text-center text-[11px] text-gray-500 font-medium leading-relaxed">
+                        👋 <span class="text-amber-700 font-bold block mb-0.5">Please Fill In Your Address First</span>
+                        Type your physical delivery details in the form on the left side to unlock the secure checkout link.
                     </div>
                 `;
             }
 
             receiptTarget.innerHTML = `
-                <div class="border-b border-slate-800 pb-3">
-                    <h4 class="text-xs font-bold uppercase text-slate-400 tracking-wider">Review Purchase Ledger</h4>
+                <div class="border-b border-gray-100 pb-2">
+                    <h4 class="text-xs font-bold uppercase text-gray-500 tracking-wider">Your Order Receipt Summary</h4>
                 </div>
 
-                <div class="flex gap-3 items-center bg-slate-950/40 p-3 rounded-xl border border-slate-900">
-                    <div class="w-12 h-12 bg-slate-950 border border-slate-800 rounded-lg flex items-center justify-center text-slate-600 font-bold text-[8px] text-center p-1 leading-tight uppercase font-sans tracking-tight">Media Vetted</div>
+                <div class="flex gap-3 items-center bg-gray-50 p-2.5 rounded-xl border border-gray-200">
+                    <div class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-[18px]">🐕</div>
                     <div class="text-xs">
-                        <p class="font-bold text-white uppercase font-serif tracking-wide">${dog.name}</p>
-                        <p class="text-[10px] text-slate-500 font-mono mt-0.5">${dog.type} • ${dog.coat}</p>
+                        <p class="font-bold text-gray-900 text-sm">${dog.name}</p>
+                        <p class="text-[11px] text-gray-500 font-medium mt-0.5">${dog.type} (${dog.coat})</p>
                     </div>
                 </div>
 
-                <div class="text-xs font-medium space-y-2 pt-1">
-                    <div class="flex justify-between text-slate-400">
-                        <span>Adoption Allocation Fee:</span>
-                        <span class="font-mono text-white font-medium">$${dog.price}.00</span>
+                <div class="text-xs font-medium space-y-1.5 pt-1">
+                    <div class="flex justify-between text-gray-500">
+                        <span>Dog Adoption Price:</span>
+                        <span class="font-bold text-gray-900">$${dog.price}.00</span>
                     </div>
-                    <div class="flex justify-between text-slate-400">
-                        <span>Fulfillment (${isTransport ? 'Ground Carrier' : 'NJ Facility Handoff'}):</span>
-                        <span class="font-mono text-white font-medium">${isTransport ? '+$25.00' : 'FREE'}</span>
+                    <div class="flex justify-between text-gray-500">
+                        <span>Delivery Setup (${isTransport ? 'Ground Delivery Truck' : 'Kennel Pickup'}):</span>
+                        <span class="font-bold text-gray-900">${isTransport ? '+$25.00' : 'FREE'}</span>
                     </div>
-                    <div class="flex justify-between text-slate-400">
-                        <span>Regional Custom Tariffs / Duties:</span>
-                        <span class="font-mono text-emerald-500 font-bold">Exempt ($0.00)</span>
+                    <div class="flex justify-between text-gray-500">
+                        <span>Extra Taxes or Fees:</span>
+                        <span class="font-bold text-emerald-600">None ($0.00)</span>
                     </div>
-                    <div class="flex justify-between text-xs font-bold uppercase tracking-widest text-white pt-3 border-t border-slate-800">
-                        <span>Aggregate Total Settlement:</span>
-                        <span class="font-mono text-amber-500 text-sm font-bold">$${fullTotalSum}.00 USD</span>
+                    <div class="flex justify-between text-xs font-bold text-gray-900 pt-2 border-t border-gray-100">
+                        <span>Total Cost Due:</span>
+                        <span class="text-amber-800 text-base font-extrabold">$${fullTotalSum}.00 USD</span>
                     </div>
                 </div>
 
@@ -521,3 +485,4 @@
     </script>
 </body>
 </html>
+
